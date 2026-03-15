@@ -179,7 +179,8 @@ function normalizeEvent(evt) {
     time,
     dayLabel,
     period:   evt.period || evt.periode || null,
-    date:     evt.date ? new Date(evt.date) : null,
+    date:     evt.date ? new Date(evt.date) :
+            (evt.day?.fr && evt.day.fr.match(/\d{4}-\d{2}-\d{2}/) ? new Date(evt.day.fr) : null),
     // Événements récurrents : mapper les jours de la semaine
     weekday:  mapWeekday(evt.jour?.fr || evt.day?.fr || ''),
     raw:      evt,

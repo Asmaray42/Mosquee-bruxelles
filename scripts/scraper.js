@@ -19,7 +19,7 @@
  *   node scraper.js --image path/to/image.jpg → OCR d'une image locale
  *
  * Cron (VPS) — toutes les 6h :
- *   0 */6 * * * /usr/bin/node /var/www/mosquee/scripts/scraper.js >> /var/log/scraper.log 2>&1
+ *   0 *\/6 * * * /usr/bin/node /var/www/mosquee/scripts/scraper.js >> /var/log/scraper.log 2>&1
  *
  * Dépendances :
  *   npm install puppeteer-core @anthropic-ai/sdk sharp dotenv

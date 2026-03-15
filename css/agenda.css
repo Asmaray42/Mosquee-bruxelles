@@ -1,0 +1,449 @@
+/* ================================================================
+   agenda.css — Section Agenda / Calendrier
+   Grande Mosquée de Bruxelles
+================================================================ */
+
+.section-agenda {
+  background-color: var(--color-blanc) !important;
+}
+
+/* ----------------------------------------------------------------
+   BARRE DE FILTRES
+---------------------------------------------------------------- */
+.agenda-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--espace-xl);
+  justify-content: center;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45em 1.1em;
+  border: 1px solid var(--color-bordure);
+  border-radius: 20px;
+  background: var(--color-blanc-pur);
+  color: var(--color-texte-doux);
+  font-family: var(--font-titre);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-transform: uppercase;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-vert);
+  color: var(--color-vert);
+}
+
+.filter-btn.active {
+  background: var(--color-vert);
+  border-color: var(--color-vert);
+  color: var(--color-blanc-pur);
+}
+
+.filter-btn .filter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Couleurs par type */
+.filter-dot--conference { background: #7F77DD; }
+.filter-dot--ramadan    { background: #c9a84c; }
+.filter-dot--cours      { background: #1D9E75; }
+.filter-dot--jumuah     { background: #378ADD; }
+.filter-dot--annonce    { background: #888780; }
+.filter-dot--all        { background: linear-gradient(135deg, #1a6b4a, #c9a84c); }
+
+
+/* ----------------------------------------------------------------
+   NAVIGATION DU CALENDRIER
+---------------------------------------------------------------- */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-lg);
+  margin-bottom: var(--espace-lg);
+}
+
+.calendar-nav-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-bordure);
+  border-radius: 50%;
+  background: var(--color-blanc-pur);
+  color: var(--color-vert);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+
+.calendar-nav-btn:hover {
+  background: var(--color-vert);
+  border-color: var(--color-vert);
+  color: var(--color-blanc-pur);
+}
+
+.calendar-month-label {
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  color: var(--color-vert-fonce);
+  letter-spacing: 0.04em;
+  min-width: 220px;
+  text-align: center;
+}
+
+.calendar-hijri {
+  font-family: var(--font-arabe);
+  font-size: 0.85rem;
+  color: var(--color-or);
+  display: block;
+  margin-top: 2px;
+}
+
+
+/* ----------------------------------------------------------------
+   GRILLE DU CALENDRIER
+---------------------------------------------------------------- */
+.calendar-grid-wrap {
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ombre-douce);
+  background: var(--color-blanc-pur);
+}
+
+/* En-têtes des jours de la semaine */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: var(--color-vert-fonce);
+}
+
+.calendar-header-day {
+  padding: 0.75em 0;
+  text-align: center;
+  font-family: var(--font-titre);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-or-clair);
+}
+
+/* Grille des jours */
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day {
+  min-height: 90px;
+  border-right: 0.5px solid var(--color-bordure);
+  border-bottom: 0.5px solid var(--color-bordure);
+  padding: 6px;
+  position: relative;
+  transition: background var(--transition);
+}
+
+.calendar-day:nth-child(7n) {
+  border-right: none;
+}
+
+.calendar-day--empty {
+  background: var(--color-vert-clair);
+  opacity: 0.4;
+}
+
+.calendar-day--today {
+  background: #fffbf0;
+}
+
+.calendar-day--today .calendar-day-num {
+  background: var(--color-or);
+  color: var(--color-vert-fonce);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day-num {
+  font-family: var(--font-titre);
+  font-size: 0.82rem;
+  color: var(--color-texte-doux);
+  margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Puces d'événements dans les cases */
+.calendar-event-dot {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.3;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity var(--transition);
+}
+
+.calendar-event-dot:hover {
+  opacity: 0.8;
+}
+
+/* Couleurs par type (fond + texte) */
+.calendar-event-dot--conference {
+  background: #EEEDFE;
+  color: #3C3489;
+}
+.calendar-event-dot--ramadan {
+  background: #fff3cd;
+  color: #8a6a00;
+}
+.calendar-event-dot--cours {
+  background: #E1F5EE;
+  color: #085041;
+}
+.calendar-event-dot--jumuah {
+  background: #E6F1FB;
+  color: #0C447C;
+}
+.calendar-event-dot--annonce {
+  background: #F1EFE8;
+  color: #444441;
+}
+
+/* Indicateur "+N autres" */
+.calendar-more {
+  font-size: 0.65rem;
+  color: var(--color-texte-doux);
+  padding: 1px 4px;
+  cursor: pointer;
+}
+
+
+/* ----------------------------------------------------------------
+   LISTE DES ÉVÉNEMENTS DU JOUR SÉLECTIONNÉ
+---------------------------------------------------------------- */
+.agenda-day-detail {
+  margin-top: var(--espace-xl);
+  min-height: 80px;
+}
+
+.agenda-day-detail-title {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  color: var(--color-vert-fonce);
+  margin-bottom: var(--espace-md);
+  padding-bottom: var(--espace-sm);
+  border-bottom: 1px solid var(--color-bordure);
+}
+
+.agenda-day-detail-title span {
+  color: var(--color-or);
+}
+
+.agenda-no-events {
+  text-align: center;
+  color: var(--color-texte-doux);
+  font-style: italic;
+  padding: var(--espace-lg);
+  font-size: 0.9rem;
+}
+
+
+/* ----------------------------------------------------------------
+   CARTES D'ÉVÉNEMENT (liste sous le calendrier)
+---------------------------------------------------------------- */
+.agenda-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-md);
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--espace-md);
+  background: var(--color-blanc-pur);
+  border: 1px solid var(--color-bordure);
+  border-left: 4px solid var(--color-vert);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--espace-md);
+  transition: all var(--transition);
+}
+
+.event-card:hover {
+  box-shadow: var(--ombre-douce);
+  transform: translateX(4px);
+}
+
+.event-card--conference { border-left-color: #534AB7; }
+.event-card--ramadan    { border-left-color: var(--color-or); }
+.event-card--cours      { border-left-color: var(--color-vert); }
+.event-card--jumuah     { border-left-color: #185FA5; }
+.event-card--annonce    { border-left-color: #888780; }
+
+/* Colonne gauche : heure / jour */
+.event-card-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.event-card-day {
+  font-family: var(--font-titre);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-texte-doux);
+}
+
+.event-card-hour {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  color: var(--color-vert-fonce);
+  line-height: 1;
+}
+
+.event-card-hour-ar {
+  font-family: var(--font-arabe);
+  font-size: 0.78rem;
+  color: var(--color-or);
+}
+
+/* Colonne droite : contenu */
+.event-card-content {}
+
+.event-card-type {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-family: var(--font-titre);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.event-card-type--conference { background: #EEEDFE; color: #3C3489; }
+.event-card-type--ramadan    { background: #fff3cd; color: #8a6a00; }
+.event-card-type--cours      { background: #E1F5EE; color: #085041; }
+.event-card-type--jumuah     { background: #E6F1FB; color: #0C447C; }
+.event-card-type--annonce    { background: #F1EFE8; color: #444441; }
+
+.event-card-title {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  color: var(--color-vert-fonce);
+  margin-bottom: 4px;
+}
+
+.event-card-title-ar {
+  font-family: var(--font-arabe);
+  font-size: 0.95rem;
+  color: var(--color-or);
+  direction: rtl;
+  margin-bottom: 4px;
+}
+
+.event-card-speaker {
+  font-size: 0.85rem;
+  color: var(--color-texte-doux);
+}
+
+.event-card-speaker::before {
+  content: '— ';
+}
+
+.event-card-period {
+  display: inline-block;
+  font-size: 0.72rem;
+  background: #fff3cd;
+  color: #8a6a00;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+/* Message "aucun événement" */
+.agenda-empty {
+  text-align: center;
+  padding: var(--espace-xl);
+  border: 2px dashed var(--color-bordure);
+  border-radius: var(--radius-lg);
+  color: var(--color-texte-doux);
+}
+
+.agenda-empty-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+  margin-bottom: var(--espace-sm);
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.agenda-skeleton {
+  height: 80px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #efe9d8 25%, #e0d8c5 50%, #efe9d8 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  margin-bottom: var(--espace-md);
+}
+
+/* RTL */
+[dir="rtl"] .agenda-filters { flex-direction: row-reverse; }
+[dir="rtl"] .event-card { border-left: none; border-right: 4px solid var(--color-vert); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+[dir="rtl"] .event-card:hover { transform: translateX(-4px); }
+[dir="rtl"] .event-card--conference { border-right-color: #534AB7; }
+[dir="rtl"] .event-card--ramadan    { border-right-color: var(--color-or); }
+[dir="rtl"] .event-card--cours      { border-right-color: var(--color-vert); }
+[dir="rtl"] .event-card--jumuah     { border-right-color: #185FA5; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-day { min-height: 60px; padding: 4px; }
+  .calendar-header-day { font-size: 0.65rem; padding: 0.5em 0; }
+  .calendar-event-dot { display: none; }
+  .calendar-day--has-events::after {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--color-or);
+    margin: 2px auto 0;
+  }
+  .event-card { grid-template-columns: 60px 1fr; }
+}
+
+@media (max-width: 480px) {
+  .calendar-nav { gap: var(--espace-md); }
+  .calendar-month-label { font-size: 1rem; min-width: 160px; }
+}

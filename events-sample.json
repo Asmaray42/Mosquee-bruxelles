@@ -1,0 +1,210 @@
+{
+  "lastUpdated": "2025-03-14T12:00:00.000Z",
+  "sources": ["mawaqit-image-ocr"],
+  "events": [
+    {
+      "id": "evt_ramadan_dim1",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Cheikh Ibrahim Bouhna",
+      "day":  { "fr": "Dimanche", "ar": "الاحد", "nl": "Zondag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_lun",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Cheikh Mohamed Hrirou",
+      "day":  { "fr": "Lundi", "ar": "الاثنين", "nl": "Maandag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_mar",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Cheikh Abdelaziz Al-Haffadi",
+      "day":  { "fr": "Mardi", "ar": "الثلاثاء", "nl": "Dinsdag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_mer",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Docteur Abouyossef / Professeur Abdelhafid Belkadi",
+      "day":  { "fr": "Mercredi", "ar": "الاربعاء", "nl": "Woensdag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_jeu1",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Cheikh Soulayman El Hadioui",
+      "day":  { "fr": "Jeudi", "ar": "الخميس", "nl": "Donderdag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_ven",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": {
+        "fr": "Cours après Asr + Tajwid du Saint Coran",
+        "ar": "بعد العصر + تجويد القرآن الكريم",
+        "nl": "Na het Asr-gebed + Tajwied van de Heilige Koran"
+      },
+      "speaker": "Cheikh Mostafa Ahmed",
+      "day":  { "fr": "Vendredi", "ar": "الجمعة", "nl": "Vrijdag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_sam",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours après Asr", "ar": "بعد العصر", "nl": "Na het Asr-gebed" },
+      "speaker": "Professeur Hicham Ezzar",
+      "day":  { "fr": "Samedi", "ar": "السبت", "nl": "Zaterdag" },
+      "time": { "fr": "après Asr", "ar": "بعد العصر" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_dim2",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours avant Icha", "ar": "قبل العشاء", "nl": "Voor het Icha-gebed" },
+      "speaker": "Cheikh Abdullah Al-Tryki",
+      "day":  { "fr": "Dimanche", "ar": "الاحد", "nl": "Zondag" },
+      "time": { "fr": "avant Icha", "ar": "قبل العشاء" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_ramadan_jeu2",
+      "source": "mawaqit-image-ocr",
+      "type": "cours",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": { "fr": "Cours avant Icha", "ar": "قبل العشاء", "nl": "Voor het Icha-gebed" },
+      "speaker": "Professeur Oussama Jamal",
+      "day":  { "fr": "Jeudi", "ar": "الخميس", "nl": "Donderdag" },
+      "time": { "fr": "avant Icha", "ar": "قبل العشاء" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_tarawih",
+      "source": "mawaqit-image-ocr",
+      "type": "ramadan",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan",
+      "title": {
+        "fr": "Prière de Tarawih",
+        "ar": "صلاة التراويح",
+        "nl": "Tarawih-gebed"
+      },
+      "speaker": "Cheikh Samadi et frère Abderrahmane",
+      "day":  { "fr": "Chaque soir", "ar": "كل ليلة", "nl": "Elke avond" },
+      "time": { "fr": "après Icha", "ar": "بعد العشاء" },
+      "notes": {
+        "fr": ["Aussi des causeries et conférences avant la prière d'Isha par Cheikh Ibrahim Bouhna et d'autres professeurs."],
+        "nl": ["Ook worden er vóór het Isha-gebed lezingen en toespraken gehouden door Sheikh Ibrahim Bouhna en andere professoren."],
+        "en": ["Also, talks and lectures before the Isha prayer by Cheikh Ibrahim Bouhna and other professors."]
+      },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    },
+    {
+      "id": "evt_tahajjud",
+      "source": "mawaqit-image-ocr",
+      "type": "ramadan",
+      "validated": false,
+      "programme": {
+        "fr": "Programme du mois du Ramadan",
+        "ar": "برنامج شهر رمضان",
+        "nl": "Ramadan Maand Programma"
+      },
+      "period": "Ramadan — 10 derniers jours",
+      "title": {
+        "fr": "Prière de Tahajjud",
+        "ar": "صلاة التهجد",
+        "nl": "Tahajjud-gebed"
+      },
+      "speaker": null,
+      "day":  { "fr": "10 derniers jours du Ramadan", "ar": "العشر الأواخر من رمضان", "nl": "Laatste tien dagen van de Ramadan" },
+      "time": { "fr": "nuit", "ar": "الليل" },
+      "createdAt": "2025-03-14T12:00:00.000Z"
+    }
+  ]
+}

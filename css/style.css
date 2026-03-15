@@ -1,0 +1,710 @@
+/* ================================================================
+   GRANDE MOSQUÉE DE BRUXELLES — style.css
+   Inspiré de l'architecture néo-mauresque du Cinquantenaire :
+   - Vert profond des mosaïques intérieures
+   - Or des détails et calligraphies
+   - Blanc cassé des murs extérieurs
+   - Motifs géométriques islamiques en CSS/SVG
+================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. VARIABLES CSS
+   Centralise toutes les valeurs — couleurs, typo, espacements.
+   Modifier ici = modifier partout sur le site.
+---------------------------------------------------------------- */
+:root {
+  /* Couleurs — palette tirée de l'architecture réelle */
+  --color-vert:        #1a6b4a;   /* vert mosaïque, couleur dominante */
+  --color-vert-fonce:  #0f4a32;   /* vert foncé pour hover/actif */
+  --color-vert-clair:  #e8f4ee;   /* vert très clair pour fonds */
+  --color-or:          #c9a84c;   /* or — détails, bordures, accents */
+  --color-or-clair:    #f0dfa0;   /* or pâle */
+  --color-blanc:       #faf7f0;   /* blanc cassé — fond principal */
+  --color-blanc-pur:   #ffffff;
+  --color-bordeaux:    #7a1e1e;   /* bordeaux — tapis de prière */
+  --color-texte:       #1e1e1e;   /* texte principal */
+  --color-texte-doux:  #5a5a4a;   /* texte secondaire */
+  --color-bordure:     #d4c89a;   /* bordures légères */
+
+  /* Typographie */
+  --font-titre:  'Cinzel', 'Times New Roman', serif;        /* titres latins — élégant, classique */
+  --font-corps:  'Amiri', 'Times New Roman', serif;         /* corps — lisible en FR/NL/AR */
+  --font-arabe:  'Noto Sans Arabic', 'Amiri', sans-serif;  /* spécifique arabe */
+
+  /* Espacements */
+  --espace-xs:   0.25rem;   /* 4px */
+  --espace-sm:   0.5rem;    /* 8px */
+  --espace-md:   1rem;      /* 16px */
+  --espace-lg:   2rem;      /* 32px */
+  --espace-xl:   4rem;      /* 64px */
+  --espace-xxl:  6rem;      /* 96px */
+
+  /* Layout */
+  --container-max: 1100px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition: 0.25s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Ombres */
+  --ombre-douce:  0 2px 12px rgba(26, 107, 74, 0.08);
+  --ombre-medium: 0 4px 24px rgba(26, 107, 74, 0.15);
+}
+
+
+/* ----------------------------------------------------------------
+   2. RESET & BASE
+   Normalise les différences entre navigateurs.
+---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-corps);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-texte);
+  background-color: var(--color-blanc);
+  /* Fond subtil avec motif géométrique islamique en SVG encodé */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.3' opacity='0.18'/%3E%3Cpath d='M15 15 L45 15 L45 45 L15 45 Z' fill='none' stroke='%231a6b4a' stroke-width='0.3' opacity='0.12'/%3E%3C/svg%3E");
+  overflow-x: hidden;
+}
+
+/* RTL global — activé par i18n.js quand lang="ar" */
+[dir="rtl"] {
+  /* Toutes les propriétés directionnelles sont overridées ici */
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-vert);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-vert-fonce);
+  text-decoration: underline;
+}
+
+/* Focus visible pour l'accessibilité */
+:focus-visible {
+  outline: 2px solid var(--color-or);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+
+/* ----------------------------------------------------------------
+   3. UTILITAIRES
+---------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;   /* fonctionne en LTR et RTL */
+  padding-inline: var(--espace-lg);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Séparateur décoratif or */
+.divider-or {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-or), transparent);
+  margin: var(--espace-md) auto;
+}
+
+[dir="rtl"] .divider-or {
+  background: linear-gradient(270deg, transparent, var(--color-or), transparent);
+}
+
+
+/* ----------------------------------------------------------------
+   4. TYPOGRAPHIE
+---------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-titre);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-vert-fonce);
+  letter-spacing: 0.02em;
+}
+
+/* En arabe, on utilise Amiri ou Noto Sans Arabic */
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3 {
+  font-family: var(--font-arabe);
+  letter-spacing: 0;
+}
+
+h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+
+p { margin-bottom: var(--espace-md); }
+p:last-child { margin-bottom: 0; }
+
+address { font-style: normal; }
+
+
+/* ----------------------------------------------------------------
+   5. BOUTONS
+---------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.75em 2em;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-titre);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-vert);
+  color: var(--color-blanc-pur);
+  border-color: var(--color-vert);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-vert-fonce);
+  border-color: var(--color-vert-fonce);
+  color: var(--color-blanc-pur);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--ombre-medium);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-or);
+  border-color: var(--color-or);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-or);
+  color: var(--color-vert-fonce);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ----------------------------------------------------------------
+   6. HEADER
+---------------------------------------------------------------- */
+.site-header {
+  position: relative;
+  background-color: var(--color-vert-fonce);
+  color: var(--color-blanc-pur);
+  overflow: hidden;
+  /* Bordure or en bas */
+  border-bottom: 2px solid var(--color-or);
+}
+
+/* Motif géométrique islamique en arrière-plan du header */
+.header-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M20 20 L60 20 L60 60 L20 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-lg);
+  padding-block: var(--espace-lg);
+}
+
+/* Identité */
+.site-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-md);
+}
+
+.site-logo svg path,
+.site-logo svg rect,
+.site-logo svg polygon {
+  /* Les couleurs sont déjà en CSS vars dans le SVG inline */
+}
+
+.site-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-title {
+  font-family: var(--font-titre);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--color-blanc-pur);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+[lang="ar"] .site-title {
+  font-family: var(--font-arabe);
+}
+
+.site-subtitle {
+  font-family: var(--font-corps);
+  font-size: 0.85rem;
+  color: var(--color-or-clair);
+  margin: 0;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+/* Switcher de langue */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-sm);
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--color-or-clair);
+  font-family: var(--font-titre);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  padding: 0.3em 0.7em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  background-color: var(--color-or);
+  border-color: var(--color-or);
+  color: var(--color-vert-fonce);
+}
+
+.lang-btn[data-lang="ar"] {
+  font-family: var(--font-arabe);
+  font-size: 0.9rem;
+}
+
+.lang-sep {
+  color: var(--color-or);
+  opacity: 0.4;
+  user-select: none;
+}
+
+
+/* ----------------------------------------------------------------
+   7. NAVIGATION PRINCIPALE
+---------------------------------------------------------------- */
+.site-nav {
+  background-color: var(--color-vert);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 1em 1.25em;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font-titre);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--transition);
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-or);
+  transition: all var(--transition);
+  transform: translateX(-50%);
+}
+
+[dir="rtl"] .nav-link::after {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-or);
+  text-decoration: none;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+/* Bouton hamburger (caché par défaut, visible sur mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--espace-sm);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-or);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+
+/* ----------------------------------------------------------------
+   8. SECTIONS — structure commune
+---------------------------------------------------------------- */
+.section {
+  padding-block: var(--espace-xxl);
+}
+
+/* Alternance fond blanc / fond vert très clair */
+.section:nth-child(even) {
+  background-color: var(--color-vert-clair);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--espace-xl);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+/* Ligne or décorative sous les titres de section */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: var(--color-or);
+  margin: var(--espace-sm) auto 0;
+}
+
+.section-sub {
+  color: var(--color-texte-doux);
+  font-size: 1rem;
+  margin-top: var(--espace-sm);
+}
+
+
+/* ----------------------------------------------------------------
+   9. SECTION HERO
+---------------------------------------------------------------- */
+.section-hero {
+  position: relative;
+  background-color: var(--color-vert-fonce);
+  color: var(--color-blanc-pur);
+  padding-block: var(--espace-xxl);
+  overflow: hidden;
+  /* Pas d'alternance pour le hero — couleur forcée */
+  background-color: var(--color-vert-fonce) !important;
+}
+
+/* Grand motif géométrique derrière le hero */
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.12'/%3E%3Cpath d='M60 20 L100 60 L60 100 L20 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.08'/%3E%3Ccircle cx='60' cy='60' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='0' cy='0' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='120' cy='0' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='0' cy='120' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='120' cy='120' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-arabe);
+  font-size: 1.5rem;
+  color: var(--color-or);
+  margin-bottom: var(--espace-sm);
+  letter-spacing: 0.1em;
+}
+
+/* Affiche "بسم الله الرحمن الرحيم" en arabe quel que soit la langue */
+.hero-eyebrow::before {
+  content: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ';
+  display: block;
+  font-family: var(--font-arabe);
+  font-size: 1.3rem;
+  color: var(--color-or);
+  opacity: 0.7;
+  margin-bottom: var(--espace-xs);
+}
+
+.hero-title {
+  color: var(--color-blanc-pur);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: var(--espace-md);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero-desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  margin-bottom: var(--espace-lg);
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--espace-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ----------------------------------------------------------------
+   10. SECTION HORAIRES DE PRIÈRE (placeholder)
+   Sera complètement stylée en Partie 2
+---------------------------------------------------------------- */
+.prayer-times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--espace-md);
+  margin-top: var(--espace-lg);
+}
+
+.loading-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-texte-doux);
+  font-style: italic;
+}
+
+
+/* ----------------------------------------------------------------
+   11. FOOTER
+---------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  background-color: var(--color-vert-fonce);
+  color: rgba(255,255,255,0.75);
+  padding-block: var(--espace-xl);
+  border-top: 2px solid var(--color-or);
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+}
+
+.footer-name {
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  color: var(--color-or);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--espace-xs);
+}
+
+.footer-address {
+  font-size: 0.9rem;
+  margin-bottom: var(--espace-sm);
+  opacity: 0.7;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+
+/* ----------------------------------------------------------------
+   12. RTL — overrides directionnels pour l'arabe
+   Appliqués automatiquement quand <html dir="rtl">
+---------------------------------------------------------------- */
+[dir="rtl"] body {
+  font-family: var(--font-arabe);
+}
+
+[dir="rtl"] .site-identity {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-inner {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-content {
+  direction: rtl;
+}
+
+[dir="rtl"] .section-title::after {
+  margin-inline: auto;
+}
+
+[dir="rtl"] .hero-actions {
+  flex-direction: row-reverse;
+}
+
+/* Texte courant en arabe — ajustements typographiques */
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] address {
+  font-family: var(--font-arabe);
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+
+/* ----------------------------------------------------------------
+   13. RESPONSIVE — MOBILE
+---------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-inner {
+    flex-wrap: wrap;
+    gap: var(--espace-md);
+  }
+
+  .site-title {
+    font-size: 1.1rem;
+  }
+
+  /* Navigation : hamburger */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--color-vert-fonce);
+    padding-block: var(--espace-sm);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.9em 1.5em;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    text-align: start;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* Hero */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Sections */
+  .section {
+    padding-block: var(--espace-xl);
+  }
+
+  /* Container */
+  .container {
+    padding-inline: var(--espace-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-switcher {
+    gap: var(--espace-xs);
+  }
+
+  .lang-btn {
+    padding: 0.25em 0.5em;
+    font-size: 0.75rem;
+  }
+}

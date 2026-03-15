@@ -1,0 +1,396 @@
+/* ================================================================
+   prayers.css — Section Horaires de Prière
+   Grande Mosquée de Bruxelles
+================================================================ */
+
+
+/* ----------------------------------------------------------------
+   LAYOUT DE LA SECTION
+---------------------------------------------------------------- */
+.section-prayers {
+  background-color: var(--color-blanc) !important;
+}
+
+.prayers-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espace-xl);
+  align-items: start;
+}
+
+/* Colonne gauche : widget Mawaqit officiel */
+.prayers-col-mawaqit {
+  position: sticky;
+  top: calc(60px + var(--espace-lg)); /* sous la nav sticky */
+}
+
+/* Colonne droite : cartes Aladhan (horaires calculés) */
+.prayers-col-aladhan {}
+
+
+/* ----------------------------------------------------------------
+   EN-TÊTES DES COLONNES
+---------------------------------------------------------------- */
+.prayers-col-title {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-vert);
+  margin-bottom: var(--espace-md);
+  display: flex;
+  align-items: center;
+  gap: var(--espace-sm);
+}
+
+.prayers-col-title::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-or);
+  flex-shrink: 0;
+}
+
+.prayers-col-badge {
+  font-size: 0.7rem;
+  background: var(--color-vert-clair);
+  color: var(--color-vert);
+  border: 1px solid var(--color-vert);
+  border-radius: 20px;
+  padding: 2px 8px;
+  letter-spacing: 0.04em;
+  font-family: var(--font-corps);
+  text-transform: none;
+}
+
+.prayers-col-badge--fallback {
+  background: #fff8e8;
+  color: #8a6a00;
+  border-color: var(--color-or);
+}
+
+.prayers-date {
+  font-family: var(--font-corps);
+  font-size: 0.9rem;
+  color: var(--color-texte-doux);
+  margin-bottom: var(--espace-lg);
+  font-style: italic;
+}
+
+
+/* ----------------------------------------------------------------
+   WIDGET MAWAQIT (iframe officiel)
+---------------------------------------------------------------- */
+.mawaqit-iframe-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ombre-medium);
+  border: 1px solid var(--color-bordure);
+  background: var(--color-vert-fonce);
+  position: relative;
+}
+
+.mawaqit-iframe-container iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: none;
+  /* L'iframe Mawaqit est responsive */
+}
+
+.mawaqit-source {
+  background: var(--color-vert-fonce);
+  padding: var(--espace-sm) var(--espace-md);
+  text-align: center;
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.mawaqit-source a {
+  font-size: 0.78rem;
+  color: var(--color-or);
+  text-decoration: none;
+  font-family: var(--font-titre);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+.mawaqit-source a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+
+/* ----------------------------------------------------------------
+   GRILLE DES CARTES (horaires Aladhan)
+---------------------------------------------------------------- */
+#aladhan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espace-md);
+}
+
+
+/* ----------------------------------------------------------------
+   CARTE DE PRIÈRE
+---------------------------------------------------------------- */
+.prayer-card {
+  background: var(--color-blanc-pur);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-lg);
+  padding: var(--espace-md) var(--espace-md) var(--espace-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espace-xs);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.prayer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-bordure);
+  transition: background var(--transition);
+}
+
+.prayer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombre-medium);
+  border-color: var(--color-or);
+}
+
+.prayer-card:hover::before {
+  background: var(--color-or);
+}
+
+/* Prochaine prière — mise en évidence */
+.prayer-card--next {
+  border-color: var(--color-or);
+  background: linear-gradient(160deg, #fffbf0 0%, var(--color-blanc-pur) 100%);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.2);
+}
+
+.prayer-card--next::before {
+  background: var(--color-or);
+}
+
+/* Chourouk — style discret (pas une prière obligatoire) */
+.prayer-card--sunrise {
+  opacity: 0.75;
+  background: var(--color-vert-clair);
+  border-style: dashed;
+}
+
+.prayer-card--sunrise:hover {
+  opacity: 1;
+}
+
+/* Icône SVG */
+.prayer-card__icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-vert);
+  transition: color var(--transition);
+}
+
+.prayer-card--next .prayer-card__icon {
+  color: var(--color-or);
+}
+
+.prayer-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Nom de la prière */
+.prayer-card__name {
+  font-family: var(--font-titre);
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-texte-doux);
+  transition: color var(--transition);
+}
+
+.prayer-card--next .prayer-card__name {
+  color: var(--color-vert-fonce);
+  font-weight: 600;
+}
+
+/* Nom arabe */
+.prayer-card__arabic {
+  font-family: var(--font-arabe);
+  font-size: 0.95rem;
+  color: var(--color-or);
+  line-height: 1.2;
+}
+
+/* Heure */
+.prayer-card__time {
+  font-family: var(--font-titre);
+  font-size: 1.6rem;
+  color: var(--color-vert-fonce);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-top: var(--espace-xs);
+}
+
+.prayer-card--next .prayer-card__time {
+  font-size: 1.8rem;
+  color: var(--color-vert);
+}
+
+/* Badge "Prochaine" */
+.prayer-card__badge {
+  display: inline-block;
+  background: var(--color-or);
+  color: var(--color-vert-fonce);
+  font-family: var(--font-titre);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: var(--espace-xs);
+  font-weight: 600;
+}
+
+/* Erreur */
+.prayers-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-texte-doux);
+  font-style: italic;
+  padding: var(--espace-lg);
+}
+
+.prayers-error a {
+  display: inline-block;
+  margin-top: var(--espace-sm);
+  color: var(--color-vert);
+}
+
+
+/* ----------------------------------------------------------------
+   SKELETON LOADER
+---------------------------------------------------------------- */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.prayer-card--skeleton {
+  pointer-events: none;
+  gap: var(--espace-sm);
+  padding: var(--espace-lg) var(--espace-md);
+}
+
+.skeleton-icon,
+.skeleton-line {
+  background: linear-gradient(90deg, #efe9d8 25%, #e0d8c5 50%, #efe9d8 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeleton-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.skeleton-line { height: 10px; }
+.skeleton-line--short  { width: 60%; }
+.skeleton-line--tiny   { width: 40%; }
+.skeleton-line--medium { width: 50%; height: 24px; border-radius: 4px; }
+
+
+/* ----------------------------------------------------------------
+   NOTE INFORMATIVE (lien vers Mawaqit pour données officielles)
+---------------------------------------------------------------- */
+.prayers-note {
+  margin-top: var(--espace-lg);
+  padding: var(--espace-md);
+  background: var(--color-vert-clair);
+  border-left: 3px solid var(--color-vert);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.88rem;
+  color: var(--color-texte-doux);
+}
+
+[dir="rtl"] .prayers-note {
+  border-left: none;
+  border-right: 3px solid var(--color-vert);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.prayers-note a {
+  color: var(--color-vert);
+  font-weight: 600;
+}
+
+.prayers-note strong {
+  color: var(--color-vert-fonce);
+}
+
+
+/* ----------------------------------------------------------------
+   RTL — arabe
+---------------------------------------------------------------- */
+[dir="rtl"] .prayers-col-title {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .prayers-col-title::before {
+  order: 1;
+}
+
+[dir="rtl"] #aladhan-grid {
+  direction: rtl;
+}
+
+
+/* ----------------------------------------------------------------
+   RESPONSIVE
+---------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .prayers-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .prayers-col-mawaqit {
+    position: static;
+  }
+
+  .mawaqit-iframe-container iframe {
+    height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  #aladhan-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .prayer-card__time {
+    font-size: 1.3rem;
+  }
+
+  .mawaqit-iframe-container iframe {
+    height: 420px;
+  }
+}
+
+@media (max-width: 380px) {
+  #aladhan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

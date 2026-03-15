@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Notre Histoire — Grande Mosquée de Bruxelles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&family=Noto+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --color-vert:#1a6b4a;--color-vert-fonce:#0f4a32;--color-vert-clair:#e8f4ee;
+  --color-or:#c9a84c;--color-or-clair:#f0dfa0;--color-blanc:#faf7f0;
+  --color-blanc-pur:#fff;--color-texte:#1e1e1e;--color-texte-doux:#5a5a4a;
+  --color-bordure:#d4c89a;
+  --font-titre:'Cinzel','Times New Roman',serif;
+  --font-corps:'Amiri','Times New Roman',serif;
+  --font-arabe:'Noto Sans Arabic','Amiri',sans-serif;
+  --radius-sm:4px;--radius-md:8px;--radius-lg:16px;
+  --transition:.25s ease;
+  --ombre-douce:0 2px 12px rgba(26,107,74,.08);
+  --ombre-medium:0 4px 24px rgba(26,107,74,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-corps);font-size:1.05rem;line-height:1.75;color:var(--color-texte);background:var(--color-blanc);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.3' opacity='0.15'/%3E%3C/svg%3E");overflow-x:hidden}
+a{color:var(--color-vert);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--color-vert-fonce);text-decoration:underline}
+.container{width:100%;max-width:1000px;margin-inline:auto;padding-inline:2rem}
+h1,h2,h3,h4{font-family:var(--font-titre);font-weight:600;line-height:1.3;color:var(--color-vert-fonce);letter-spacing:.02em}
+p{margin-bottom:1rem}p:last-child{margin-bottom:0}
+
+/* ---- HEADER ---- */
+.site-header{position:relative;background:var(--color-vert-fonce);color:#fff;overflow:hidden;border-bottom:2px solid var(--color-or)}
+.header-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1.5rem 2rem}
+.back-link{display:flex;align-items:center;gap:.5rem;color:var(--color-or-clair);font-family:var(--font-titre);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:color var(--transition)}
+.back-link:hover{color:var(--color-or);text-decoration:none}
+.back-link svg{width:16px;height:16px;stroke:currentColor}
+.header-title-wrap{text-align:center}
+.header-title{font-family:var(--font-titre);font-size:clamp(1.1rem,2.5vw,1.5rem);color:#fff;letter-spacing:.05em}
+.header-title-ar{font-family:var(--font-arabe);font-size:1rem;color:var(--color-or);opacity:.8;display:block;margin-top:2px}
+.lang-switcher{display:flex;align-items:center;gap:.4rem}
+.lang-btn{background:none;border:1px solid rgba(201,168,76,.4);color:var(--color-or-clair);font-family:var(--font-titre);font-size:.75rem;letter-spacing:.06em;padding:.25em .6em;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--transition)}
+.lang-btn:hover,.lang-btn.active{background:var(--color-or);border-color:var(--color-or);color:var(--color-vert-fonce)}
+.lang-btn[data-lang="ar"]{font-family:var(--font-arabe);font-size:.85rem}
+
+/* ---- HERO ---- */
+.histoire-hero{position:relative;background:var(--color-vert-fonce);color:#fff;overflow:hidden;padding:5rem 0 4rem}
+.hero-bg-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.1'/%3E%3Ccircle cx='60' cy='60' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.3' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none}
+.hero-content{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero-text{}
+.hero-eyebrow{font-family:var(--font-arabe);font-size:1.3rem;color:var(--color-or);margin-bottom:.5rem}
+.hero-title{font-family:var(--font-titre);font-size:clamp(2rem,5vw,3rem);color:#fff;margin-bottom:1rem;line-height:1.2}
+.hero-subtitle{color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem}
+.hero-date-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);border-radius:20px;padding:.4em 1em;font-family:var(--font-titre);font-size:.78rem;letter-spacing:.06em;color:var(--color-or)}
+.hero-image-wrap{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--ombre-medium);border:2px solid rgba(201,168,76,.3)}
+.hero-image-wrap img{width:100%;height:280px;object-fit:cover;display:block}
+.hero-image-caption{background:rgba(0,0,0,.5);padding:.5rem 1rem;font-size:.72rem;color:rgba(255,255,255,.7);text-align:center}
+
+/* ---- CHIFFRES CLÉS ---- */
+.stats-band{background:var(--color-or);padding:2.5rem 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stat-item{}
+.stat-num{font-family:var(--font-titre);font-size:2.2rem;color:var(--color-vert-fonce);line-height:1;margin-bottom:.25rem}
+.stat-label{font-size:.78rem;color:var(--color-vert-fonce);opacity:.75;text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-titre)}
+
+/* ---- TIMELINE ---- */
+.timeline-section{padding:5rem 0;background:var(--color-blanc)}
+.section-intro{text-align:center;margin-bottom:3.5rem}
+.section-eyebrow{font-family:var(--font-titre);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-or);margin-bottom:.5rem}
+.section-title-main{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:.75rem}
+.section-title-main::after{content:'';display:block;width:50px;height:2px;background:var(--color-or);margin:.75rem auto 0}
+.section-desc{color:var(--color-texte-doux);font-size:.95rem;max-width:600px;margin-inline:auto}
+
+/* Conteneur timeline */
+.timeline{position:relative;max-width:800px;margin-inline:auto}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--color-or),var(--color-or),transparent);transform:translateX(-50%)}
+
+.tl-item{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:3rem;position:relative}
+.tl-item:nth-child(even) .tl-content{grid-column:3}
+.tl-item:nth-child(even) .tl-empty{grid-column:1}
+.tl-item:nth-child(even) .tl-dot-wrap{grid-column:2;grid-row:1}
+
+/* Dot central */
+.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:.2rem}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--color-or);border:3px solid var(--color-blanc);box-shadow:0 0 0 2px var(--color-or);flex-shrink:0;z-index:1;position:relative}
+.tl-dot--major{width:20px;height:20px;background:var(--color-vert);box-shadow:0 0 0 3px var(--color-vert)}
+
+/* Carte de contenu */
+.tl-content{background:var(--color-blanc-pur);border:1px solid var(--color-bordure);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--ombre-douce);transition:all var(--transition)}
+.tl-content:hover{box-shadow:var(--ombre-medium);transform:translateY(-2px)}
+.tl-content--major{border-color:var(--color-vert);background:linear-gradient(160deg,var(--color-vert-clair),var(--color-blanc-pur))}
+.tl-year{font-family:var(--font-titre);font-size:1.6rem;color:var(--color-or);line-height:1;margin-bottom:.2rem}
+.tl-label{font-family:var(--font-titre);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-texte-doux);margin-bottom:.75rem}
+.tl-title{font-family:var(--font-titre);font-size:1rem;color:var(--color-vert-fonce);margin-bottom:.5rem}
+.tl-desc{font-size:.88rem;color:var(--color-texte-doux);line-height:1.7;margin-bottom:0}
+.tl-image{margin-top:1rem;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--color-bordure)}
+.tl-image img{width:100%;height:160px;object-fit:cover;display:block}
+.tl-image-cap{background:var(--color-vert-clair);padding:.35rem .75rem;font-size:.68rem;color:var(--color-texte-doux);font-style:italic}
+.tl-empty{}
+
+/* ---- ARCHITECTURE ---- */
+.architecture-section{padding:5rem 0;background:var(--color-vert-clair)}
+.archi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.archi-card{background:var(--color-blanc-pur);border:1px solid var(--color-bordure);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--ombre-douce);transition:all var(--transition)}
+.archi-card:hover{transform:translateY(-4px);box-shadow:var(--ombre-medium)}
+.archi-card-img{height:180px;background:var(--color-vert-fonce);overflow:hidden;position:relative}
+.archi-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.archi-card:hover .archi-card-img img{transform:scale(1.05)}
+.archi-card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--color-vert-fonce)}
+.archi-card-img-placeholder svg{width:48px;height:48px;opacity:.3;stroke:var(--color-or)}
+.archi-card-badge{position:absolute;top:.75rem;left:.75rem;background:var(--color-or);color:var(--color-vert-fonce);font-family:var(--font-titre);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px}
+.archi-card-body{padding:1.25rem}
+.archi-card-title{font-family:var(--font-titre);font-size:1rem;color:var(--color-vert-fonce);margin-bottom:.5rem}
+.archi-card-desc{font-size:.85rem;color:var(--color-texte-doux);line-height:1.65;margin-bottom:.75rem}
+.archi-card-specs{display:flex;flex-wrap:wrap;gap:.4rem}
+.archi-spec{background:var(--color-vert-clair);color:var(--color-vert-fonce);font-size:.7rem;font-family:var(--font-titre);letter-spacing:.05em;padding:3px 10px;border-radius:20px}
+
+/* ---- PATRIMOINE ---- */
+.patrimoine-band{background:var(--color-vert-fonce);color:#fff;padding:3.5rem 0;border-top:2px solid var(--color-or);border-bottom:2px solid var(--color-or)}
+.patrimoine-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.patrimoine-text .eyebrow{font-family:var(--font-arabe);font-size:1.2rem;color:var(--color-or);margin-bottom:.5rem}
+.patrimoine-text h2{color:#fff;font-size:1.6rem;margin-bottom:1rem}
+.patrimoine-text p{color:rgba(255,255,255,.8);font-size:.92rem;line-height:1.8}
+.patrimoine-facts{display:flex;flex-direction:column;gap:1rem}
+.patrimoine-fact{display:flex;align-items:flex-start;gap:1rem;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-md);padding:1rem}
+.patrimoine-fact-icon{width:36px;height:36px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.patrimoine-fact-icon svg{width:18px;height:18px;stroke:var(--color-or)}
+.patrimoine-fact-text{font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.6}
+.patrimoine-fact-text strong{color:var(--color-or);display:block;font-family:var(--font-titre);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.2rem}
+
+/* ---- FOOTER ---- */
+.page-footer{background:var(--color-vert-fonce);color:rgba(255,255,255,.6);text-align:center;padding:2rem;border-top:2px solid var(--color-or);font-size:.82rem}
+.page-footer a{color:var(--color-or)}
+
+/* ---- RTL ---- */
+[dir="rtl"] body{font-family:var(--font-arabe)}
+[dir="rtl"] .header-inner{flex-direction:row-reverse}
+[dir="rtl"] .hero-content{direction:rtl}
+[dir="rtl"] .tl-item:nth-child(even) .tl-content{grid-column:1}
+[dir="rtl"] .tl-item:nth-child(even) .tl-empty{grid-column:3}
+[dir="rtl"] .timeline::before{left:auto;right:50%}
+[dir="rtl"] .patrimoine-inner{direction:rtl}
+[dir="rtl"] .back-link{flex-direction:row-reverse}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-image-wrap{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .archi-grid{grid-template-columns:1fr 1fr}
+  .patrimoine-inner{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .timeline::before{left:28px}
+  .tl-item,.tl-item:nth-child(even){display:flex;flex-direction:column;padding-left:60px;position:relative}
+  .tl-dot-wrap{position:absolute;left:20px;top:0;flex-direction:row}
+  .tl-empty{display:none}
+  .tl-item:nth-child(even) .tl-content,.tl-item:nth-child(even) .tl-empty{grid-column:unset}
+  .archi-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .container{padding-inline:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-pattern" aria-hidden="true"></div>
+  <div class="header-inner">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span data-i18n="back_home">Retour</span>
+    </a>
+    <div class="header-title-wrap">
+      <div class="header-title" data-i18n="histoire_title">Notre Histoire</div>
+      <span class="header-title-ar">تاريخنا</span>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="ar">عربي</button>
+      <button class="lang-btn" data-lang="nl">NL</button>
+    </div>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="histoire-hero">
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-eyebrow">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+        <h1 class="hero-title" data-i18n="hero_histoire_title">145 ans d'histoire au cœur de Bruxelles</h1>
+        <p class="hero-subtitle" data-i18n="hero_histoire_desc">
+          De pavillon d'exposition en 1880 à première grande mosquée institutionnelle de Belgique en 1978 — le bâtiment du Parc du Cinquantenaire porte en lui l'histoire du dialogue entre l'Orient et l'Occident.
+        </p>
+        <div class="hero-date-badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span data-i18n="hero_date_badge">Classé au patrimoine depuis 1976</span>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="images/vue-aerienne.png"
+             alt="Grande Mosquée de Bruxelles — Vue aérienne"
+             loading="eager"/>
+        <div class="hero-image-caption">Vue aérienne de la Grande Mosquée de Bruxelles — © Grande Mosquée de Bruxelles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CHIFFRES CLÉS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">1880</div>
+        <div class="stat-label" data-i18n="stat_construction">Construction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">38 m</div>
+        <div class="stat-label" data-i18n="stat_diametre">Diamètre rotonde</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40 m</div>
+        <div class="stat-label" data-i18n="stat_minaret">Hauteur minaret</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+45</div>
+        <div class="stat-label" data-i18n="stat_ans">Ans de mosquée</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-intro">
+      <p class="section-eyebrow" data-i18n="timeline_eyebrow">Frise chronologique</p>
+      <h2 class="section-title-main" data-i18n="timeline_title">De 1880 à aujourd'hui</h2>
+      <p class="section-desc" data-i18n="timeline_desc">Un bâtiment unique dont l'histoire reflète les liens profonds entre la Belgique et le monde islamique.</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 1880 -->
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1880</div>
+          <div class="tl-label" data-i18n="tl_label_bruxelles">Bruxelles</div>
+          <h3 class="tl-title" data-i18n="tl_1880_title">Naissance du Parc du Cinquantenaire</h3>
+          <p class="tl-desc" data-i18n="tl_1880_desc">Le parc est fondé à l'occasion du 50e anniversaire de l'indépendance de la Belgique. L'architecte Ernest Van Humbeeck conçoit un pavillon orientalisant en brique, marbre et fer, de forme polygonale à 16 pans.</p>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <!-- 1895–1897 -->
+      <div class="tl-item">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">1895–97</div>
+          <div class="tl-label" data-i18n="tl_label_expo">Exposition universelle</div>
+          <h3 class="tl-title" data-i18n="tl_1897_title">Le Panorama du Caire</h3>
+          <p class="tl-desc" data-i18n="tl_1897_desc">Le comte Louis Cavens rachète la gigantesque toile du peintre Émile Wauters — <em>Le Caire et les bords du Nil</em> — et finance la construction d'une rotonde en forme de mosquée pour l'abriter. La toile mesure 114 mètres de long sur 14 mètres de haut. Elle sera exposée lors de l'Exposition internationale de Bruxelles en 1897.</p>
+          <div class="tl-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Wauters_Panorama_Cairo.jpg/640px-Wauters_Panorama_Cairo.jpg"
+                 alt="Le Panorama du Caire d'Émile Wauters"
+                 loading="lazy"
+                 onerror="this.parentElement.style.display='none'"/>
+            <div class="tl-image-cap">Détail du Panorama du Caire, Émile Wauters (domaine public)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1967 -->
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1967</div>
+          <div class="tl-label" data-i18n="tl_label_don">Don royal</div>
+          <h3 class="tl-title" data-i18n="tl_1967_title">Le don du Roi Baudouin</h3>
+          <p class="tl-desc" data-i18n="tl_1967_desc">Le bâtiment, laissé à l'abandon depuis des décennies, est offert par le Roi Baudouin de Belgique au Roi Faysal d'Arabie saoudite. Un bail emphytéotique de 99 ans est signé le 13 juin 1969, pour transformer le lieu en mosquée et centre islamique au service de la communauté musulmane de Belgique.</p>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <!-- 1975 -->
+      <div class="tl-item">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">1975</div>
+          <div class="tl-label" data-i18n="tl_label_renovation">Rénovation</div>
+          <h3 class="tl-title" data-i18n="tl_1975_title">Transformation par Mongi Boubaker</h3>
+          <p class="tl-desc" data-i18n="tl_1975_desc">L'architecte tunisien Mongi Boubaker réaménage profondément l'édifice, financé par l'Arabie saoudite. La structure rotonde originale est conservée. Trois niveaux sont aménagés : une grande salle de prière au rez-de-chaussée, une bibliothèque islamique, et des bureaux pour le Centre Islamique et Culturel de Belgique. Le bâtiment est classé au patrimoine architectural le 18 novembre 1976.</p>
+          <div class="tl-image">
+            <img src="images/interieur.png" alt="Salle de prière — Grande Mosquée de Bruxelles" loading="lazy"/>
+            <div class="tl-image-cap">Salle de prière principale — © Grande Mosquée de Bruxelles</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1978 — MAJEUR -->
+      <div class="tl-item">
+        <div class="tl-content tl-content--major">
+          <div class="tl-year" style="color:var(--color-vert)">1978</div>
+          <div class="tl-label" data-i18n="tl_label_inauguration">Inauguration officielle</div>
+          <h3 class="tl-title" data-i18n="tl_1978_title">✦ Naissance de la Grande Mosquée</h3>
+          <p class="tl-desc" data-i18n="tl_1978_desc">Inaugurée en présence du Roi Khaled d'Arabie saoudite et du Roi Baudouin de Belgique, la Grande Mosquée de Bruxelles devient la première grande mosquée institutionnelle de Belgique. Elle accueille le siège du Centre Islamique et Culturel de Belgique (CICB), reconnu organe représentatif de l'islam en Belgique.</p>
+          <div class="tl-image">
+            <img src="images/vue-aerienne.png"
+                 alt="Grande Mosquée de Bruxelles — Vue aérienne"
+                 loading="lazy"/>
+            <div class="tl-image-cap">Vue aérienne de la Grande Mosquée de Bruxelles — © Grande Mosquée de Bruxelles</div>
+          </div>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot--major"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="tl-item">
+        <div class="tl-empty"></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2019</div>
+          <div class="tl-label" data-i18n="tl_label_nouveau">Nouveau chapitre</div>
+          <h3 class="tl-title" data-i18n="tl_2019_title">Une gestion belge et locale</h3>
+          <p class="tl-desc" data-i18n="tl_2019_desc">Après quarante années de gestion saoudienne, l'Arabie saoudite remet les clés de la mosquée en avril 2019. La Grande Mosquée entre dans une nouvelle ère, gérée localement, recentrée sur sa mission première : servir la communauté musulmane bruxelloise dans le respect des lois et des valeurs belges.</p>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="tl-item">
+        <div class="tl-content" style="border-color:var(--color-or);background:linear-gradient(160deg,#fffbf0,#fff)">
+          <div class="tl-year" style="color:var(--color-or)">2025</div>
+          <div class="tl-label" data-i18n="tl_label_aujourdhui">Aujourd'hui</div>
+          <h3 class="tl-title" data-i18n="tl_2025_title">Rénovation et avenir</h3>
+          <p class="tl-desc" data-i18n="tl_2025_desc">Le minaret, fragilisé par les années, fait l'objet de travaux de stabilisation par la Régie des Bâtiments pour un montant de 82 000 €. La mosquée reste un lieu de vie actif — prière, culture et rencontre — pour des milliers de fidèles bruxellois, au cœur du Parc du Cinquantenaire.</p>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--color-or);box-shadow:0 0 0 3px var(--color-or)"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+    </div><!-- /.timeline -->
+  </div>
+</section>
+
+
+<!-- ARCHITECTURE -->
+<section class="architecture-section">
+  <div class="container">
+    <div class="section-intro">
+      <p class="section-eyebrow" data-i18n="archi_eyebrow">Patrimoine architectural</p>
+      <h2 class="section-title-main" data-i18n="archi_title">L'Architecture</h2>
+      <p class="section-desc" data-i18n="archi_desc">Un édifice néo-mauresque unique, classé au patrimoine architectural de la Région de Bruxelles-Capitale depuis 1976.</p>
+    </div>
+
+    <div class="archi-grid">
+
+      <!-- La Rotonde -->
+      <div class="archi-card">
+        <div class="archi-card-img">
+          <img src="images/vue-aerienne.png" alt="Vue aérienne de la rotonde" loading="lazy"/>
+          <div class="archi-card-badge" data-i18n="archi_1880">1880</div>
+        </div>
+        <div class="archi-card-body">
+          <h3 class="archi-card-title" data-i18n="archi_rotonde_title">La Rotonde</h3>
+          <p class="archi-card-desc" data-i18n="archi_rotonde_desc">Structure polygonale à 16 pans, érigée comme pavillon d'exposition par l'architecte Ernest Van Humbeeck. Le bâtiment en brique, marbre et fer a conservé sa forme originale malgré les transformations de 1975.</p>
+          <div class="archi-card-specs">
+            <span class="archi-spec" data-i18n="archi_spec_38">38 m de diamètre</span>
+            <span class="archi-spec" data-i18n="archi_spec_16">16 pans</span>
+            <span class="archi-spec" data-i18n="archi_spec_brique">Brique & marbre</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Le Minaret -->
+      <div class="archi-card">
+        <div class="archi-card-img">
+          <img src="images/minaret.png" alt="Le minaret de la Grande Mosquée de Bruxelles" loading="lazy" style="object-position:center top"/>
+          <div class="archi-card-badge" data-i18n="archi_renovation">Rénovation 2025</div>
+        </div>
+        <div class="archi-card-body">
+          <h3 class="archi-card-title" data-i18n="archi_minaret_title">Le Minaret</h3>
+          <p class="archi-card-desc" data-i18n="archi_minaret_desc">Le minaret élancé, coiffé d'un bulbe en cuivre doré, est l'élément le plus visible de la mosquée depuis le Parc du Cinquantenaire. Il fait l'objet de travaux de stabilisation en 2025 par la Régie des Bâtiments.</p>
+          <div class="archi-card-specs">
+            <span class="archi-spec" data-i18n="archi_spec_40">~40 m de hauteur</span>
+            <span class="archi-spec" data-i18n="archi_spec_cuivre">Bulbe en cuivre</span>
+            <span class="archi-spec" data-i18n="archi_spec_travaux">Travaux en cours</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Intérieur -->
+      <div class="archi-card">
+        <div class="archi-card-img">
+          <img src="images/interieur.png" alt="Salle de prière intérieure — Grande Mosquée de Bruxelles" loading="lazy"/>
+          <div class="archi-card-badge" data-i18n="archi_1975">1975</div>
+        </div>
+        <div class="archi-card-body">
+          <h3 class="archi-card-title" data-i18n="archi_interieur_title">L'Intérieur</h3>
+          <p class="archi-card-desc" data-i18n="archi_interieur_desc">La salle de prière, réaménagée par Mongi Boubaker, est ornée de mosaïques vertes et blanches, d'un mihrab en pierre blanche ouvragée et d'une grande coupole centrale. Un lustre en cristal illumine l'espace principal.</p>
+          <div class="archi-card-specs">
+            <span class="archi-spec" data-i18n="archi_spec_mosaiques">Mosaïques vertes</span>
+            <span class="archi-spec" data-i18n="archi_spec_mihrab">Mihrab en marbre</span>
+            <span class="archi-spec" data-i18n="archi_spec_3niveaux">3 niveaux</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PATRIMOINE -->
+<section class="patrimoine-band">
+  <div class="container">
+    <div class="patrimoine-inner">
+      <div class="patrimoine-text">
+        <p class="eyebrow">التراث المعماري</p>
+        <h2 data-i18n="patrimoine_title">Un patrimoine protégé</h2>
+        <p data-i18n="patrimoine_desc">La Grande Mosquée de Bruxelles est l'un des rares édifices religieux islamiques classés au patrimoine architectural en Europe. Sa rotonde néo-mauresque, témoin de l'Exposition internationale de 1897, est protégée par la Région de Bruxelles-Capitale.</p>
+      </div>
+      <div class="patrimoine-facts">
+        <div class="patrimoine-fact">
+          <div class="patrimoine-fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="patrimoine-fact-text">
+            <strong data-i18n="fact_1_label">Classé au patrimoine</strong>
+            <span data-i18n="fact_1_text">18 novembre 1976 — Région de Bruxelles-Capitale</span>
+          </div>
+        </div>
+        <div class="patrimoine-fact">
+          <div class="patrimoine-fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="patrimoine-fact-text">
+            <strong data-i18n="fact_2_label">Bail emphytéotique</strong>
+            <span data-i18n="fact_2_text">99 ans — signé le 13 juin 1969</span>
+          </div>
+        </div>
+        <div class="patrimoine-fact">
+          <div class="patrimoine-fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="patrimoine-fact-text">
+            <strong data-i18n="fact_3_label">Architecte de la transformation</strong>
+            <span data-i18n="fact_3_text">Mongi Boubaker (Tunisie) — plans de 1975</span>
+          </div>
+        </div>
+        <div class="patrimoine-fact">
+          <div class="patrimoine-fact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="patrimoine-fact-text">
+            <strong data-i18n="fact_4_label">Lieu de culte actif</strong>
+            <span data-i18n="fact_4_text">Depuis 1978 — des milliers de fidèles chaque semaine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <a href="index.html" data-i18n="back_home_full">← Retour au site de la Grande Mosquée de Bruxelles</a>
+  <p style="margin-top:.5rem;font-size:.72rem;opacity:.5">Sources : Wikimedia Commons (CC BY-SA) · Inventaire du patrimoine architectural de Bruxelles · Wikipedia</p>
+</footer>
+
+
+<script>
+'use strict';
+
+const I18N = {
+  fr:{
+    back_home:'Retour',
+    histoire_title:'Notre Histoire',
+    hero_histoire_title:'145 ans d\'histoire au cœur de Bruxelles',
+    hero_histoire_desc:'De pavillon d\'exposition en 1880 à première grande mosquée institutionnelle de Belgique en 1978 — le bâtiment du Parc du Cinquantenaire porte en lui l\'histoire du dialogue entre l\'Orient et l\'Occident.',
+    hero_date_badge:'Classé au patrimoine depuis 1976',
+    stat_construction:'Construction',stat_diametre:'Diamètre rotonde',stat_minaret:'Hauteur minaret',stat_ans:'Ans de mosquée',
+    timeline_eyebrow:'Frise chronologique',timeline_title:'De 1880 à aujourd\'hui',
+    timeline_desc:'Un bâtiment unique dont l\'histoire reflète les liens profonds entre la Belgique et le monde islamique.',
+    tl_label_bruxelles:'Bruxelles',tl_label_expo:'Exposition universelle',tl_label_don:'Don royal',
+    tl_label_renovation:'Rénovation',tl_label_inauguration:'Inauguration officielle',tl_label_nouveau:'Nouveau chapitre',tl_label_aujourdhui:'Aujourd\'hui',
+    tl_1880_title:'Naissance du Parc du Cinquantenaire',
+    tl_1880_desc:'Le parc est fondé à l\'occasion du 50e anniversaire de l\'indépendance de la Belgique. L\'architecte Ernest Van Humbeeck conçoit un pavillon orientalisant en brique, marbre et fer, de forme polygonale à 16 pans.',
+    tl_1897_title:'Le Panorama du Caire',
+    tl_1897_desc:'Le comte Louis Cavens rachète la gigantesque toile d\'Émile Wauters — Le Caire et les bords du Nil — et finance la construction d\'une rotonde en forme de mosquée pour l\'abriter. La toile mesure 114 mètres de long sur 14 mètres de haut.',
+    tl_1967_title:'Le don du Roi Baudouin',
+    tl_1967_desc:'Le bâtiment, laissé à l\'abandon, est offert par le Roi Baudouin de Belgique au Roi Faysal d\'Arabie saoudite. Un bail emphytéotique de 99 ans est signé le 13 juin 1969 pour transformer le lieu en mosquée.',
+    tl_1975_title:'Transformation par Mongi Boubaker',
+    tl_1975_desc:'L\'architecte tunisien Mongi Boubaker réaménage l\'édifice. Trois niveaux : salle de prière, bibliothèque islamique, bureaux du CICB. Classé au patrimoine le 18 novembre 1976.',
+    tl_1978_title:'✦ Naissance de la Grande Mosquée',
+    tl_1978_desc:'Inaugurée en présence du Roi Khaled d\'Arabie saoudite et du Roi Baudouin de Belgique. Première grande mosquée institutionnelle de Belgique, siège du Centre Islamique et Culturel de Belgique.',
+    tl_2019_title:'Une gestion belge et locale',
+    tl_2019_desc:'Après quarante années de gestion saoudienne, l\'Arabie saoudite remet les clés en avril 2019. Nouvelle ère, gestion locale, recentrée sur la communauté musulmane bruxelloise.',
+    tl_2025_title:'Rénovation et avenir',
+    tl_2025_desc:'Le minaret fait l\'objet de travaux de stabilisation pour 82 000 €. La mosquée reste un lieu de vie actif pour des milliers de fidèles bruxellois.',
+    archi_eyebrow:'Patrimoine architectural',archi_title:'L\'Architecture',
+    archi_desc:'Un édifice néo-mauresque unique, classé au patrimoine depuis 1976.',
+    archi_1880:'1880',archi_renovation:'Rénovation 2025',archi_1975:'1975',
+    archi_rotonde_title:'La Rotonde',archi_rotonde_desc:'Structure polygonale à 16 pans, érigée comme pavillon d\'exposition. Le bâtiment a conservé sa forme originale malgré les transformations de 1975.',
+    archi_minaret_title:'Le Minaret',archi_minaret_desc:'Coiffé d\'un bulbe en cuivre doré, il est l\'élément le plus visible depuis le parc. Travaux de stabilisation en cours en 2025.',
+    archi_interieur_title:'L\'Intérieur',archi_interieur_desc:'Mosaïques vertes et blanches, mihrab en pierre blanche ouvragée, grande coupole centrale et lustre en cristal.',
+    archi_spec_38:'38 m de diamètre',archi_spec_16:'16 pans',archi_spec_brique:'Brique & marbre',
+    archi_spec_40:'~40 m de hauteur',archi_spec_cuivre:'Bulbe en cuivre',archi_spec_travaux:'Travaux en cours',
+    archi_spec_mosaiques:'Mosaïques vertes',archi_spec_mihrab:'Mihrab en marbre',archi_spec_3niveaux:'3 niveaux',
+    patrimoine_title:'Un patrimoine protégé',
+    patrimoine_desc:'La Grande Mosquée de Bruxelles est l\'un des rares édifices religieux islamiques classés au patrimoine architectural en Europe.',
+    fact_1_label:'Classé au patrimoine',fact_1_text:'18 novembre 1976 — Région de Bruxelles-Capitale',
+    fact_2_label:'Bail emphytéotique',fact_2_text:'99 ans — signé le 13 juin 1969',
+    fact_3_label:'Architecte de la transformation',fact_3_text:'Mongi Boubaker (Tunisie) — plans de 1975',
+    fact_4_label:'Lieu de culte actif',fact_4_text:'Depuis 1978 — des milliers de fidèles chaque semaine',
+    back_home_full:'← Retour au site de la Grande Mosquée de Bruxelles',
+  },
+  ar:{
+    back_home:'رجوع',
+    histoire_title:'تاريخنا',
+    hero_histoire_title:'145 عاماً في قلب بروكسل',
+    hero_histoire_desc:'من جناح المعرض عام 1880 إلى أول مسجد رسمي كبير في بلجيكا عام 1978 — يحمل مبنى حديقة السينكونتينير تاريخ الحوار بين الشرق والغرب.',
+    hero_date_badge:'مُصنَّف تراثاً معمارياً منذ 1976',
+    stat_construction:'تاريخ البناء',stat_diametre:'قطر القبة',stat_minaret:'ارتفاع المئذنة',stat_ans:'سنة مسجداً',
+    timeline_eyebrow:'الجدول الزمني',timeline_title:'من 1880 حتى اليوم',
+    timeline_desc:'مبنى فريد يعكس تاريخه الروابط العميقة بين بلجيكا والعالم الإسلامي.',
+    tl_label_bruxelles:'بروكسل',tl_label_expo:'المعرض الدولي',tl_label_don:'هبة ملكية',
+    tl_label_renovation:'ترميم',tl_label_inauguration:'الافتتاح الرسمي',tl_label_nouveau:'فصل جديد',tl_label_aujourdhui:'اليوم',
+    tl_1880_title:'تأسيس حديقة السينكونتينير',
+    tl_1880_desc:'أُسِّست الحديقة بمناسبة الذكرى الخمسين لاستقلال بلجيكا. صمَّم المعماري إرنست فان هومبيك جناحاً شرقي الطابع من الطوب والرخام والحديد.',
+    tl_1897_title:'بانوراما القاهرة',
+    tl_1897_desc:'اشترى الكونت لويس كافنس لوحة الفنان إيميل واترز — القاهرة وضفاف النيل — وموَّل بناء قبة على شكل مسجد لاحتضانها. اللوحة بطول 114 متراً وارتفاع 14 متراً.',
+    tl_1967_title:'هبة الملك بودوان',
+    tl_1967_desc:'أهدى الملك بودوان المبنى المهجور إلى الملك فيصل. وُقِّع عقد إيجار تأبيدي لمدة 99 عاماً في 13 يونيو 1969 لتحويله إلى مسجد.',
+    tl_1975_title:'التحويل بيد منجي بوبكر',
+    tl_1975_desc:'أعاد المعماري التونسي منجي بوبكر تهيئة المبنى بتمويل سعودي. ثلاثة طوابق: قاعة صلاة، مكتبة إسلامية، ومكاتب. صُنِّف تراثاً في 18 نوفمبر 1976.',
+    tl_1978_title:'✦ تأسيس المسجد الكبير',
+    tl_1978_desc:'افتُتح بحضور الملك خالد والملك بودوان. أصبح أول مسجد رسمي كبير في بلجيكا ومقراً للمركز الإسلامي والثقافي لبلجيكا.',
+    tl_2019_title:'إدارة بلجيكية محلية',
+    tl_2019_desc:'بعد أربعين عاماً من الإدارة السعودية، سلَّمت المملكة العربية السعودية المفاتيح في أبريل 2019. حقبة جديدة بإدارة محلية.',
+    tl_2025_title:'الترميم والمستقبل',
+    tl_2025_desc:'تجري أعمال تثبيت المئذنة بتكلفة 82,000 يورو. يظل المسجد مكاناً حيوياً لآلاف المصلين البروكسيليين.',
+    archi_eyebrow:'التراث المعماري',archi_title:'العمارة',archi_desc:'مبنى موريسكي فريد، مُصنَّف تراثاً منذ 1976.',
+    archi_1880:'1880',archi_renovation:'ترميم 2025',archi_1975:'1975',
+    archi_rotonde_title:'القبة',archi_rotonde_desc:'هيكل متعدد الأضلاع من 16 ضلعاً، أُقيم كجناح معرض. احتفظ المبنى بشكله الأصلي رغم تحويلات 1975.',
+    archi_minaret_title:'المئذنة',archi_minaret_desc:'تعلوها قبة نحاسية ذهبية وهي أبرز معالم المسجد. أعمال تثبيت جارية عام 2025.',
+    archi_interieur_title:'الداخل',archi_interieur_desc:'فسيفساء خضراء وبيضاء، محراب من الرخام الأبيض المنقوش، قبة مركزية كبيرة وثريا بلورية.',
+    archi_spec_38:'38 م قطراً',archi_spec_16:'16 ضلعاً',archi_spec_brique:'طوب ورخام',
+    archi_spec_40:'~40 م ارتفاعاً',archi_spec_cuivre:'قبة نحاسية',archi_spec_travaux:'أعمال جارية',
+    archi_spec_mosaiques:'فسيفساء خضراء',archi_spec_mihrab:'محراب رخامي',archi_spec_3niveaux:'3 طوابق',
+    patrimoine_title:'تراث محمي',
+    patrimoine_desc:'يُعدّ المسجد الكبير في بروكسل من النادر من المباني الدينية الإسلامية المُصنَّفة تراثاً معمارياً في أوروبا.',
+    fact_1_label:'مُصنَّف تراثاً',fact_1_text:'18 نوفمبر 1976 — إقليم بروكسل العاصمة',
+    fact_2_label:'عقد إيجار تأبيدي',fact_2_text:'99 عاماً — وُقِّع في 13 يونيو 1969',
+    fact_3_label:'مهندس التحويل',fact_3_text:'منجي بوبكر (تونس) — مخططات 1975',
+    fact_4_label:'مكان عبادة نشط',fact_4_text:'منذ 1978 — آلاف المصلين أسبوعياً',
+    back_home_full:'→ العودة إلى موقع المسجد الكبير في بروكسل',
+  },
+  nl:{
+    back_home:'Terug',
+    histoire_title:'Onze Geschiedenis',
+    hero_histoire_title:'145 jaar geschiedenis in het hart van Brussel',
+    hero_histoire_desc:'Van tentoonstellingspaviljoen in 1880 tot de eerste grote institutionele moskee van België in 1978 — het gebouw in het Jubelpark draagt de geschiedenis van de dialoog tussen Oost en West.',
+    hero_date_badge:'Beschermd erfgoed sinds 1976',
+    stat_construction:'Bouw',stat_diametre:'Diameter rotonde',stat_minaret:'Hoogte minaret',stat_ans:'Jaar moskee',
+    timeline_eyebrow:'Tijdlijn',timeline_title:'Van 1880 tot vandaag',
+    timeline_desc:'Een uniek gebouw waarvan de geschiedenis de diepe band tussen België en de islamitische wereld weerspiegelt.',
+    tl_label_bruxelles:'Brussel',tl_label_expo:'Wereldtentoonstelling',tl_label_don:'Koninklijk geschenk',
+    tl_label_renovation:'Renovatie',tl_label_inauguration:'Officiële opening',tl_label_nouveau:'Nieuw hoofdstuk',tl_label_aujourdhui:'Vandaag',
+    tl_1880_title:'Oprichting van het Jubelpark',
+    tl_1880_desc:'Het park werd opgericht ter gelegenheid van de 50e verjaardag van de Belgische onafhankelijkheid. Architect Ernest Van Humbeeck ontwierp een oriëntaals paviljoen in baksteen, marmer en ijzer.',
+    tl_1897_title:'Het Panorama van Caïro',
+    tl_1897_desc:'Graaf Louis Cavens kocht het gigantische doek van Émile Wauters — Caïro en de oevers van de Nijl — en financierde de bouw van een rotonde als moskee om het werk te huisvesten. Het doek is 114 meter lang en 14 meter hoog.',
+    tl_1967_title:'Het geschenk van Koning Boudewijn',
+    tl_1967_desc:'Het verlaten gebouw werd door Koning Boudewijn geschonken aan Koning Faisal van Saoedi-Arabië. Op 13 juni 1969 werd een erfpacht van 99 jaar ondertekend om het tot moskee te maken.',
+    tl_1975_title:'Verbouwing door Mongi Boubaker',
+    tl_1975_desc:'De Tunesische architect Mongi Boubaker verbouwde het gebouw grondig. Drie verdiepingen: gebedsruimte, islamitische bibliotheek en kantoren. Beschermd erfgoed op 18 november 1976.',
+    tl_1978_title:'✦ Opening van de Grote Moskee',
+    tl_1978_desc:'Geopend in aanwezigheid van Koning Khalid en Koning Boudewijn. Eerste grote institutionele moskee van België, zetel van het Islamitisch en Cultureel Centrum van België.',
+    tl_2019_title:'Belgisch en lokaal bestuur',
+    tl_2019_desc:'Na veertig jaar Saoedisch beheer overhandigde Saoedi-Arabië de sleutels in april 2019. Nieuw tijdperk, lokaal bestuur, gericht op de Brusselse moslimgemeenschap.',
+    tl_2025_title:'Renovatie en toekomst',
+    tl_2025_desc:'De minaret ondergaat stabilisatiewerken voor 82.000 €. De moskee blijft een actieve plek voor duizenden Brusselse gelovigen.',
+    archi_eyebrow:'Architecturaal erfgoed',archi_title:'De Architectuur',archi_desc:'Een uniek Moors gebouw, beschermd erfgoed sinds 1976.',
+    archi_1880:'1880',archi_renovation:'Renovatie 2025',archi_1975:'1975',
+    archi_rotonde_title:'De Rotonde',archi_rotonde_desc:'Veelhoekige structuur met 16 zijden, gebouwd als tentoonstellingspaviljoen. Het gebouw heeft zijn oorspronkelijke vorm behouden.',
+    archi_minaret_title:'De Minaret',archi_minaret_desc:'Bekroond met een vergulde koperen bol, het meest zichtbare element van de moskee. Stabilisatiewerken in 2025.',
+    archi_interieur_title:'Het Interieur',archi_interieur_desc:'Groen-witte mozaïeken, mihrab in bewerkte witte steen, grote centrale koepel en kristallen kroonluchter.',
+    archi_spec_38:'38 m diameter',archi_spec_16:'16 zijden',archi_spec_brique:'Baksteen & marmer',
+    archi_spec_40:'~40 m hoogte',archi_spec_cuivre:'Koperen bol',archi_spec_travaux:'Werken aan gang',
+    archi_spec_mosaiques:'Groene mozaïeken',archi_spec_mihrab:'Marmeren mihrab',archi_spec_3niveaux:'3 verdiepingen',
+    patrimoine_title:'Beschermd erfgoed',
+    patrimoine_desc:'De Grote Moskee van Brussel is een van de zeldzame islamitische religieuze gebouwen die als architecturaal erfgoed zijn beschermd in Europa.',
+    fact_1_label:'Beschermd erfgoed',fact_1_text:'18 november 1976 — Brussels Hoofdstedelijk Gewest',
+    fact_2_label:'Erfpacht',fact_2_text:'99 jaar — getekend op 13 juni 1969',
+    fact_3_label:'Architect van de verbouwing',fact_3_text:'Mongi Boubaker (Tunesië) — plannen van 1975',
+    fact_4_label:'Actieve gebedsplaats',fact_4_text:'Sinds 1978 — duizenden gelovigen elke week',
+    back_home_full:'← Terug naar de website van de Grote Moskee van Brussel',
+  }
+};
+
+function setLang(lang){
+  if(!I18N[lang])lang='fr';
+  const d=document.documentElement;
+  d.setAttribute('lang',lang);d.setAttribute('data-lang',lang);
+  d.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+  const dict=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(dict[k]!==undefined)el.textContent=dict[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+  });
+  try{localStorage.setItem('gmb_lang',lang);}catch(e){}
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  let lang='fr';
+  try{const s=localStorage.getItem('gmb_lang');if(s&&I18N[s])lang=s;}catch(e){}
+  setLang(lang);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
+});
+</script>
+</body>
+</html>

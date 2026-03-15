@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-i18n="page_title">Grande Mosquée de Bruxelles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&family=Noto+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+/* === VARIABLES === */
+:root {
+  --color-vert:#1a6b4a;--color-vert-fonce:#0f4a32;--color-vert-clair:#e8f4ee;
+  --color-or:#c9a84c;--color-or-clair:#f0dfa0;--color-blanc:#faf7f0;
+  --color-blanc-pur:#fff;--color-texte:#1e1e1e;--color-texte-doux:#5a5a4a;
+  --color-bordure:#d4c89a;
+  --font-titre:'Cinzel','Times New Roman',serif;
+  --font-corps:'Amiri','Times New Roman',serif;
+  --font-arabe:'Noto Sans Arabic','Amiri',sans-serif;
+  --espace-xs:.25rem;--espace-sm:.5rem;--espace-md:1rem;--espace-lg:2rem;
+  --espace-xl:4rem;--espace-xxl:6rem;
+  --container-max:1100px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;
+  --transition:.25s ease;
+  --ombre-douce:0 2px 12px rgba(26,107,74,.08);
+  --ombre-medium:0 4px 24px rgba(26,107,74,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-corps);font-size:1.05rem;line-height:1.75;color:var(--color-texte);background-color:var(--color-blanc);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.3' opacity='0.18'/%3E%3Cpath d='M15 15 L45 15 L45 45 L15 45 Z' fill='none' stroke='%231a6b4a' stroke-width='0.3' opacity='0.12'/%3E%3C/svg%3E");overflow-x:hidden}
+a{color:var(--color-vert);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--color-vert-fonce);text-decoration:underline}
+ul[role="list"]{list-style:none}
+.container{width:100%;max-width:var(--container-max);margin-inline:auto;padding-inline:var(--espace-lg)}
+h1,h2,h3{font-family:var(--font-titre);font-weight:600;line-height:1.3;color:var(--color-vert-fonce);letter-spacing:.02em}
+[lang="ar"] h1,[lang="ar"] h2,[lang="ar"] h3{font-family:var(--font-arabe);letter-spacing:0}
+h1{font-size:clamp(1.5rem,4vw,2.5rem)}
+h2{font-size:clamp(1.25rem,3vw,2rem)}
+p{margin-bottom:var(--espace-md)}p:last-child{margin-bottom:0}
+address{font-style:normal}
+
+/* Boutons */
+.btn{display:inline-block;padding:.75em 2em;border-radius:var(--radius-sm);font-family:var(--font-titre);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:2px solid transparent;transition:all var(--transition);text-decoration:none}
+.btn-primary{background-color:var(--color-vert);color:var(--color-blanc-pur);border-color:var(--color-vert)}
+.btn-primary:hover{background-color:var(--color-vert-fonce);color:var(--color-blanc-pur);text-decoration:none;transform:translateY(-1px);box-shadow:var(--ombre-medium)}
+.btn-outline{background-color:transparent;color:var(--color-or);border-color:var(--color-or)}
+.btn-outline:hover{background-color:var(--color-or);color:var(--color-vert-fonce);text-decoration:none;transform:translateY(-1px)}
+
+/* Header */
+.site-header{position:relative;background-color:var(--color-vert-fonce);color:var(--color-blanc-pur);overflow:hidden;border-bottom:2px solid var(--color-or)}
+.header-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none}
+.header-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:var(--espace-lg);padding-block:var(--espace-lg)}
+.site-identity{display:flex;align-items:center;gap:var(--espace-md)}
+.site-name{display:flex;flex-direction:column;gap:2px}
+.site-title{font-family:var(--font-titre);font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--color-blanc-pur);margin:0;letter-spacing:.05em}
+.site-subtitle{font-family:var(--font-corps);font-size:.85rem;color:var(--color-or-clair);margin:0;opacity:.85}
+.lang-switcher{display:flex;align-items:center;gap:var(--espace-sm);flex-shrink:0}
+.lang-btn{background:none;border:1px solid rgba(201,168,76,.4);color:var(--color-or-clair);font-family:var(--font-titre);font-size:.8rem;letter-spacing:.06em;padding:.3em .7em;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--transition)}
+.lang-btn:hover,.lang-btn.active{background-color:var(--color-or);border-color:var(--color-or);color:var(--color-vert-fonce)}
+.lang-btn[data-lang="ar"]{font-family:var(--font-arabe);font-size:.9rem}
+.lang-sep{color:var(--color-or);opacity:.4;user-select:none}
+
+/* Nav */
+.site-nav{background-color:var(--color-vert);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-menu{display:flex;align-items:center;list-style:none;margin:0;padding:0}
+.nav-link{display:block;padding:1em 1.25em;color:rgba(255,255,255,.85);font-family:var(--font-titre);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all var(--transition);position:relative}
+.nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--color-or);transition:all var(--transition);transform:translateX(-50%)}
+[dir="rtl"] .nav-link::after{left:auto;right:50%;transform:translateX(50%)}
+.nav-link:hover,.nav-link.active{color:var(--color-or);text-decoration:none}
+.nav-link:hover::after,.nav-link.active::after{width:80%}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:var(--espace-sm)}
+.nav-toggle span{display:block;width:24px;height:2px;background-color:var(--color-or);border-radius:2px}
+
+/* Sections */
+.section{padding-block:var(--espace-xxl)}
+.section:nth-child(even){background-color:var(--color-vert-clair)}
+.section-header{text-align:center;margin-bottom:var(--espace-xl)}
+.section-title{position:relative;display:inline-block}
+.section-title::after{content:'';display:block;width:50px;height:2px;background:var(--color-or);margin:var(--espace-sm) auto 0}
+.section-sub{color:var(--color-texte-doux);font-size:1rem;margin-top:var(--espace-sm)}
+
+/* Hero */
+.section-hero{position:relative;background-color:var(--color-vert-fonce) !important;color:var(--color-blanc-pur);padding-block:var(--espace-xxl);overflow:hidden}
+.hero-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.12'/%3E%3Ccircle cx='60' cy='60' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3C/svg%3E");pointer-events:none}
+.hero-content{position:relative;text-align:center;max-width:700px;margin-inline:auto}
+.hero-eyebrow{font-family:var(--font-arabe);font-size:1.5rem;color:var(--color-or);margin-bottom:var(--espace-sm);letter-spacing:.1em}
+.hero-eyebrow::before{content:'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ';display:block;font-family:var(--font-arabe);font-size:1.3rem;color:var(--color-or);opacity:.7;margin-bottom:var(--espace-xs)}
+.hero-title{color:var(--color-blanc-pur);font-size:clamp(1.8rem,5vw,3rem);margin-bottom:var(--espace-md);text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-desc{color:rgba(255,255,255,.8);font-size:1.1rem;margin-bottom:var(--espace-lg);max-width:500px;margin-inline:auto}
+.hero-actions{display:flex;gap:var(--espace-md);justify-content:center;flex-wrap:wrap}
+
+/* ========== SECTION HORAIRES ========== */
+.section-prayers{background-color:var(--color-blanc) !important}
+.prayers-layout{display:grid;grid-template-columns:1fr 1fr;gap:var(--espace-xl);align-items:start}
+.prayers-col-mawaqit{position:sticky;top:calc(60px + var(--espace-lg))}
+.prayers-col-title{font-family:var(--font-titre);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--color-vert);margin-bottom:var(--espace-md);display:flex;align-items:center;gap:var(--espace-sm)}
+.prayers-col-title::before{content:'';display:inline-block;width:20px;height:2px;background:var(--color-or);flex-shrink:0}
+.prayers-col-badge{font-size:.7rem;background:var(--color-vert-clair);color:var(--color-vert);border:1px solid var(--color-vert);border-radius:20px;padding:2px 8px;font-family:var(--font-corps);text-transform:none;letter-spacing:.04em}
+.prayers-col-badge--fallback{background:#fff8e8;color:#8a6a00;border-color:var(--color-or)}
+.prayers-date{font-family:var(--font-corps);font-size:.9rem;color:var(--color-texte-doux);margin-bottom:var(--espace-lg);font-style:italic}
+
+/* Mawaqit iframe */
+.mawaqit-iframe-container{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--ombre-medium);border:1px solid var(--color-bordure);background:var(--color-vert-fonce);position:relative}
+.mawaqit-iframe-container iframe{display:block;width:100%;height:600px;border:none}
+.mawaqit-source{background:var(--color-vert-fonce);padding:var(--espace-sm) var(--espace-md);text-align:center;border-top:1px solid rgba(201,168,76,.2)}
+.mawaqit-source a{font-size:.78rem;color:var(--color-or);text-decoration:none;font-family:var(--font-titre);letter-spacing:.05em;opacity:.8;transition:opacity var(--transition)}
+.mawaqit-source a:hover{opacity:1;text-decoration:none}
+
+/* Grille cartes Aladhan */
+#aladhan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--espace-md)}
+
+/* Carte */
+.prayer-card{background:var(--color-blanc-pur);border:1px solid var(--color-bordure);border-radius:var(--radius-lg);padding:var(--espace-md) var(--espace-md) var(--espace-sm);display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--espace-xs);transition:all var(--transition);position:relative;overflow:hidden}
+.prayer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--color-bordure);transition:background var(--transition)}
+.prayer-card:hover{transform:translateY(-3px);box-shadow:var(--ombre-medium);border-color:var(--color-or)}
+.prayer-card:hover::before{background:var(--color-or)}
+.prayer-card--next{border-color:var(--color-or);background:linear-gradient(160deg,#fffbf0 0%,var(--color-blanc-pur) 100%);box-shadow:0 4px 20px rgba(201,168,76,.2)}
+.prayer-card--next::before{background:var(--color-or)}
+.prayer-card--sunrise{opacity:.75;background:var(--color-vert-clair);border-style:dashed}
+.prayer-card--sunrise:hover{opacity:1}
+.prayer-card__icon{width:28px;height:28px;color:var(--color-vert);transition:color var(--transition)}
+.prayer-card--next .prayer-card__icon{color:var(--color-or)}
+.prayer-card__icon svg{width:100%;height:100%}
+.prayer-card__name{font-family:var(--font-titre);font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:var(--color-texte-doux)}
+.prayer-card--next .prayer-card__name{color:var(--color-vert-fonce);font-weight:600}
+.prayer-card__arabic{font-family:var(--font-arabe);font-size:.95rem;color:var(--color-or);line-height:1.2}
+.prayer-card__time{font-family:var(--font-titre);font-size:1.6rem;color:var(--color-vert-fonce);letter-spacing:.04em;line-height:1;margin-top:var(--espace-xs)}
+.prayer-card--next .prayer-card__time{font-size:1.8rem;color:var(--color-vert)}
+.prayer-card__badge{display:inline-block;background:var(--color-or);color:var(--color-vert-fonce);font-family:var(--font-titre);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:var(--espace-xs);font-weight:600}
+
+/* Skeleton */
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.prayer-card--skeleton{pointer-events:none;gap:var(--espace-sm);padding:var(--espace-lg) var(--espace-md)}
+.skeleton-icon,.skeleton-line{background:linear-gradient(90deg,#efe9d8 25%,#e0d8c5 50%,#efe9d8 75%);background-size:400px 100%;animation:shimmer 1.4s ease-in-out infinite;border-radius:4px}
+.skeleton-icon{width:28px;height:28px;border-radius:50%}
+.skeleton-line{height:10px}.skeleton-line--short{width:60%}.skeleton-line--tiny{width:40%}.skeleton-line--medium{width:50%;height:24px;border-radius:4px}
+
+/* Note */
+.prayers-note{margin-top:var(--espace-lg);padding:var(--espace-md);background:var(--color-vert-clair);border-left:3px solid var(--color-vert);border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:.88rem;color:var(--color-texte-doux)}
+[dir="rtl"] .prayers-note{border-left:none;border-right:3px solid var(--color-vert);border-radius:var(--radius-md) 0 0 var(--radius-md)}
+.prayers-note a{color:var(--color-vert);font-weight:600}
+.prayers-error{grid-column:1/-1;text-align:center;color:var(--color-texte-doux);font-style:italic;padding:var(--espace-lg)}
+
+/* Placeholder sections */
+.section-placeholder{text-align:center;padding:var(--espace-xl);border:2px dashed var(--color-bordure);border-radius:var(--radius-lg);color:var(--color-texte-doux);font-style:italic;max-width:500px;margin:0 auto}
+.placeholder-icon{font-size:2.5rem;margin-bottom:var(--espace-sm);opacity:.4}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--espace-xl);align-items:start}
+.contact-map-placeholder{background:var(--color-vert-clair);border:2px dashed var(--color-bordure);border-radius:var(--radius-lg);height:250px;display:flex;align-items:center;justify-content:center;color:var(--color-texte-doux);font-style:italic;flex-direction:column;gap:var(--espace-sm)}
+
+/* Footer */
+.site-footer{position:relative;background-color:var(--color-vert-fonce);color:rgba(255,255,255,.75);padding-block:var(--espace-xl);border-top:2px solid var(--color-or);overflow:hidden;text-align:center}
+.footer-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.1'/%3E%3C/svg%3E");pointer-events:none}
+.footer-inner{position:relative}
+.footer-name{font-family:var(--font-titre);font-size:1.1rem;color:var(--color-or);letter-spacing:.05em;margin-bottom:var(--espace-xs)}
+.footer-address{font-size:.9rem;margin-bottom:var(--espace-sm);opacity:.7}
+.footer-copy{font-size:.8rem;opacity:.5}
+
+/* RTL */
+[dir="rtl"] body{font-family:var(--font-arabe)}
+[dir="rtl"] .site-identity{flex-direction:row-reverse}
+[dir="rtl"] .header-inner{flex-direction:row-reverse}
+[dir="rtl"] .nav-menu{flex-direction:row-reverse}
+[dir="rtl"] .hero-content{direction:rtl}
+[dir="rtl"] .hero-actions{flex-direction:row-reverse}
+[dir="rtl"] p,[dir="rtl"] li,[dir="rtl"] address{font-family:var(--font-arabe);font-size:1.1rem;line-height:2}
+[dir="rtl"] .prayers-col-title{flex-direction:row-reverse}
+[dir="rtl"] #aladhan-grid{direction:rtl}
+[dir="rtl"] .contact-grid{direction:rtl}
+
+/* Responsive */
+@media(max-width:900px){.prayers-layout{grid-template-columns:1fr}.prayers-col-mawaqit{position:static}.mawaqit-iframe-container iframe{height:500px}}
+@media(max-width:768px){.header-inner{flex-wrap:wrap;gap:var(--espace-md)}.nav-toggle{display:flex}.nav-menu{display:none;flex-direction:column;width:100%;background-color:var(--color-vert-fonce);padding-block:var(--espace-sm)}.nav-menu.open{display:flex}.nav-link{padding:.9em 1.5em;border-bottom:1px solid rgba(255,255,255,.1);width:100%;text-align:start}.nav-link::after{display:none}.hero-actions{flex-direction:column;align-items:center}.section{padding-block:var(--espace-xl)}.container{padding-inline:var(--espace-md)}.contact-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#aladhan-grid{grid-template-columns:repeat(3,1fr)}.prayer-card__time{font-size:1.3rem}.mawaqit-iframe-container iframe{height:420px}}
+@media(max-width:380px){#aladhan-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="header-pattern" aria-hidden="true"></div>
+  <div class="header-inner container">
+    <div class="site-identity">
+      <div aria-hidden="true">
+        <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" width="52" height="60">
+          <rect x="8" y="38" width="44" height="28" rx="2" fill="var(--color-or)" opacity="0.15"/>
+          <path d="M10 38 Q10 8 30 8 Q50 8 50 38 Z" fill="var(--color-or)" opacity="0.25"/>
+          <path d="M10 38 Q10 8 30 8 Q50 8 50 38" fill="none" stroke="var(--color-or)" stroke-width="1.5"/>
+          <path d="M2 38 Q2 28 10 28 Q18 28 18 38" fill="none" stroke="var(--color-or)" stroke-width="1"/>
+          <path d="M42 38 Q42 28 50 28 Q58 28 58 38" fill="none" stroke="var(--color-or)" stroke-width="1"/>
+          <rect x="27" y="0" width="6" height="12" fill="var(--color-or)" opacity="0.8"/>
+          <polygon points="27,0 33,0 30,-5" fill="var(--color-or)"/>
+          <path d="M22 66 Q22 52 30 52 Q38 52 38 66" fill="var(--color-vert)" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="site-name">
+        <h1 class="site-title" data-i18n="site_name">Grande Mosquée de Bruxelles</h1>
+        <p class="site-subtitle" data-i18n="site_subtitle">Centre Islamique de Belgique</p>
+      </div>
+    </div>
+    <nav class="lang-switcher" aria-label="Langue">
+      <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="ar" aria-pressed="false">عربي</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="nl" aria-pressed="false">NL</button>
+    </nav>
+  </div>
+</header>
+
+<nav class="site-nav" role="navigation">
+  <div class="container nav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="main-menu" role="list">
+      <li><a href="#accueil"    class="nav-link active" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="#prieres"   class="nav-link" data-i18n="nav_prayers">Horaires de prière</a></li>
+      <li><a href="#agenda"    class="nav-link" data-i18n="nav_agenda">Agenda</a></li>
+      <li><a href="#education" class="nav-link" data-i18n="nav_education">Éducation</a></li>
+      <li><a href="#dons"      class="nav-link" data-i18n="nav_donate">Faire un don</a></li>
+      <li><a href="#contact"   class="nav-link" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main-content" role="main">
+
+  <!-- HERO -->
+  <section id="accueil" class="section section-hero">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Bienvenue</p>
+      <h2 class="hero-title" data-i18n="hero_title">Grande Mosquée de Bruxelles</h2>
+      <p class="hero-desc" data-i18n="hero_desc">Au cœur du Parc du Cinquantenaire, un espace de paix, de prière et de rencontre ouvert à tous.</p>
+      <div class="hero-actions">
+        <a href="#prieres" class="btn btn-primary" data-i18n="hero_cta_prayers">Horaires du jour</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_contact">Nous trouver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORAIRES DE PRIÈRE -->
+  <section id="prieres" class="section section-prayers" id="prayer-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="prayers_title">Horaires de prière</h2>
+        <p class="section-sub" data-i18n="prayers_sub">Bruxelles — aujourd'hui</p>
+      </div>
+
+      <div class="prayers-layout" id="prayer-section">
+
+        <!-- Colonne gauche : Widget officiel Mawaqit -->
+        <div class="prayers-col-mawaqit">
+          <div class="prayers-col-title">
+            <span data-i18n="prayers_official">Horaires officiels</span>
+            <span class="prayers-col-badge">Mawaqit</span>
+          </div>
+          <div id="mawaqit-widget-wrap">
+            <!-- Injecté par prayers.js -->
+          </div>
+          <p class="prayers-note" style="margin-top:1rem">
+            <strong>Source officielle :</strong> ces horaires sont ceux configurés directement par
+            <a href="https://mawaqit.net/fr/m/gmb" target="_blank" rel="noopener">la Grande Mosquée de Bruxelles sur Mawaqit</a>,
+            incluant les iqamas et les horaires du Jumu'a.
+          </p>
+        </div>
+
+        <!-- Colonne droite : Cartes Aladhan (calcul astronomique) -->
+        <div class="prayers-col-aladhan">
+          <div class="prayers-col-title">
+            <span data-i18n="prayers_calculated">Horaires calculés</span>
+            <span class="prayers-col-badge prayers-col-badge--fallback">Aladhan API</span>
+          </div>
+          <p class="prayers-date" id="prayers-date-label"></p>
+          <div id="aladhan-grid">
+            <!-- Injecté par prayers.js / JS inline ici -->
+          </div>
+          <p class="prayers-note">
+            Calcul astronomique pour Bruxelles (méthode Muslim World League).
+            Pour les iqamas et horaires exacts de la mosquée, consultez le widget officiel.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="agenda" class="section section-agenda">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="agenda_title">Agenda</h2>
+        <p class="section-sub" data-i18n="agenda_sub">Événements et activités à venir</p>
+      </div>
+      <div class="section-placeholder"><div class="placeholder-icon">📅</div><p>Section en cours de développement — Partie 3</p></div>
+    </div>
+  </section>
+
+  <!-- ÉDUCATION -->
+  <section id="education" class="section section-education">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="education_title">Éducation</h2>
+        <p class="section-sub" data-i18n="education_sub">Cours, conférences et ressources</p>
+      </div>
+      <div class="section-placeholder"><div class="placeholder-icon">📚</div><p>Section en cours de développement — Partie 4</p></div>
+    </div>
+  </section>
+
+  <!-- DONS -->
+  <section id="dons" class="section section-donate">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="donate_title">Faire un don</h2>
+        <p class="section-sub" data-i18n="donate_sub">Soutenez votre mosquée</p>
+      </div>
+      <div class="section-placeholder"><div class="placeholder-icon">🤲</div><p>Section en cours de développement — Partie 5</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-contact">
+    <div class="container">
+      <div class="section-header"><h2 class="section-title" data-i18n="contact_title">Contact & Accès</h2></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><strong data-i18n="contact_address_label">Adresse</strong></p>
+          <address>Parc du Cinquantenaire 29<br/>1000 Bruxelles, Belgique</address>
+          <br/><p>📞 +32 2 735 21 75</p><p>✉️ info@grande-mosquee.be</p>
+        </div>
+        <div class="contact-map-placeholder">
+          <span style="font-size:2rem;opacity:.4">🗺️</span>
+          <p>Carte Google Maps — Partie 6</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-pattern" aria-hidden="true"></div>
+  <div class="container footer-inner">
+    <p class="footer-name" data-i18n="site_name">Grande Mosquée de Bruxelles</p>
+    <p class="footer-address">Parc du Cinquantenaire 29 — 1000 Bruxelles</p>
+    <p class="footer-copy"><span data-i18n="footer_copy">© 2025 Centre Islamique de Belgique</span></p>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* ============ i18n ============ */
+const translations = {
+  fr:{page_title:'Grande Mosquée de Bruxelles',site_name:'Grande Mosquée de Bruxelles',site_subtitle:'Centre Islamique de Belgique',nav_home:'Accueil',nav_prayers:'Horaires de prière',nav_agenda:'Agenda',nav_education:'Éducation',nav_donate:'Faire un don',nav_contact:'Contact',hero_eyebrow:'Bienvenue',hero_title:'Grande Mosquée de Bruxelles',hero_desc:'Au cœur du Parc du Cinquantenaire, un espace de paix, de prière et de rencontre ouvert à tous.',hero_cta_prayers:'Horaires du jour',hero_cta_contact:'Nous trouver',prayers_title:'Horaires de prière',prayers_sub:"Bruxelles — aujourd'hui",prayers_official:'Horaires officiels',prayers_calculated:'Horaires calculés',agenda_title:'Agenda',agenda_sub:'Événements et activités à venir',education_title:'Éducation',education_sub:'Cours, conférences et ressources',donate_title:'Faire un don',donate_sub:'Soutenez votre mosquée',contact_title:'Contact & Accès',contact_address_label:'Adresse',footer_copy:'© 2025 Centre Islamique de Belgique',next_prayer:'Prochaine'},
+  ar:{page_title:'المسجد الكبير في بروكسل',site_name:'المسجد الكبير في بروكسل',site_subtitle:'المركز الإسلامي في بلجيكا',nav_home:'الرئيسية',nav_prayers:'أوقات الصلاة',nav_agenda:'الأنشطة',nav_education:'التعليم',nav_donate:'التبرع',nav_contact:'اتصل بنا',hero_eyebrow:'أهلاً وسهلاً',hero_title:'المسجد الكبير في بروكسل',hero_desc:'في قلب حديقة السينكونتينير، مكان للسلام والصلاة واللقاء مفتوح للجميع.',hero_cta_prayers:'أوقات الصلاة اليوم',hero_cta_contact:'كيفية الوصول',prayers_title:'أوقات الصلاة',prayers_sub:'بروكسل — اليوم',prayers_official:'الأوقات الرسمية',prayers_calculated:'الأوقات المحسوبة',agenda_title:'الفعاليات',agenda_sub:'الأنشطة والفعاليات القادمة',education_title:'التعليم',education_sub:'دروس ومحاضرات وموارد',donate_title:'التبرع',donate_sub:'ادعم مسجدك',contact_title:'اتصل بنا والوصول',contact_address_label:'العنوان',footer_copy:'© 2025 المركز الإسلامي في بلجيكا',next_prayer:'التالية'},
+  nl:{page_title:'Grote Moskee van Brussel',site_name:'Grote Moskee van Brussel',site_subtitle:'Islamitisch Centrum van België',nav_home:'Home',nav_prayers:'Gebedstijden',nav_agenda:'Agenda',nav_education:'Onderwijs',nav_donate:'Doneren',nav_contact:'Contact',hero_eyebrow:'Welkom',hero_title:'Grote Moskee van Brussel',hero_desc:'In het hart van het Jubelpark, een plek van vrede, gebed en ontmoeting, open voor iedereen.',hero_cta_prayers:'Gebedstijden vandaag',hero_cta_contact:'Ons vinden',prayers_title:'Gebedstijden',prayers_sub:'Brussel — vandaag',prayers_official:'Officiële tijden',prayers_calculated:'Berekende tijden',agenda_title:'Agenda',agenda_sub:'Aankomende evenementen',education_title:'Onderwijs',education_sub:'Lessen, lezingen en bronnen',donate_title:'Doneren',donate_sub:'Steun uw moskee',contact_title:'Contact & Bereikbaarheid',contact_address_label:'Adres',footer_copy:'© 2025 Islamitisch Centrum van België',next_prayer:'Volgende'}
+};
+
+const PRAYER_NAMES={fr:['Fajr','Chourouk','Dhuhr','Asr','Maghrib','Isha'],ar:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],nl:['Fajr','Zonsopgang','Dhuhr','Asr','Maghrib','Isha']};
+const PRAYER_ARABIC=['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'];
+const PRAYER_ICONS=[
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><path d="M3 20h18" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="14" r="4"/><path d="M12 2v4M4.93 6.93l1.41 1.41M2 14h2M20 14h2M17.66 6.93l-1.41 1.41"/><path d="M3 20h18" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 12a5 5 0 1 1-10 0"/><path d="M3 12h18M12 3v3"/><path d="M3 20h18" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M16 5l.5 1.5L18 7l-1.5.5L16 9l-.5-1.5L14 7l1.5-.5z"/></svg>`
+];
+
+function setLanguage(lang){
+  if(!translations[lang]) lang='fr';
+  const dict=translations[lang];
+  const html=document.documentElement;
+  html.setAttribute('lang',lang);
+  html.setAttribute('data-lang',lang);
+  html.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(dict[k]!==undefined)el.textContent=dict[k];});
+  if(dict.page_title) document.title=dict.page_title;
+  document.querySelectorAll('.lang-btn').forEach(btn=>{const a=btn.getAttribute('data-lang')===lang;btn.classList.toggle('active',a);btn.setAttribute('aria-pressed',a?'true':'false');});
+  try{localStorage.setItem('gmb_lang',lang);}catch(e){}
+  renderAladhanGrid();
+}
+
+/* ============ Mawaqit iframe ============ */
+function renderMawaqit(){
+  const wrap=document.getElementById('mawaqit-widget-wrap');
+  if(!wrap) return;
+  wrap.innerHTML=`
+    <div class="mawaqit-iframe-container">
+      <iframe src="https://mawaqit.net/fr/w/gmb" title="Horaires officiels — Grande Mosquée de Bruxelles" loading="lazy" allow="autoplay"></iframe>
+      <div class="mawaqit-source">
+        <a href="https://mawaqit.net/fr/m/gmb" target="_blank" rel="noopener">Voir sur Mawaqit ↗</a>
+      </div>
+    </div>`;
+}
+
+/* ============ Aladhan API ============ */
+function getNextIdx(prayers){
+  const now=new Date();
+  const cur=now.getHours()*60+now.getMinutes();
+  for(let i=0;i<prayers.length;i++){const[h,m]=prayers[i].time.split(':').map(Number);if(h*60+m>cur)return i;}
+  return 0;
+}
+
+function renderCards(prayers){
+  const grid=document.getElementById('aladhan-grid');
+  if(!grid) return;
+  const lang=document.documentElement.getAttribute('data-lang')||'fr';
+  const names=PRAYER_NAMES[lang]||PRAYER_NAMES.fr;
+  const nextIdx=getNextIdx(prayers);
+  const dict=translations[lang]||translations.fr;
+  grid.innerHTML=prayers.map((p,i)=>`
+    <article class="prayer-card ${i===nextIdx?'prayer-card--next':''} ${p.key==='Sunrise'?'prayer-card--sunrise':''}">
+      <div class="prayer-card__icon">${PRAYER_ICONS[i]||''}</div>
+      <div class="prayer-card__name">${names[i]}</div>
+      <div class="prayer-card__arabic">${PRAYER_ARABIC[i]}</div>
+      <div class="prayer-card__time">${p.time}</div>
+      ${i===nextIdx?`<div class="prayer-card__badge">${dict.next_prayer||'Prochaine'}</div>`:''}
+    </article>`).join('');
+  const dateEl=document.getElementById('prayers-date-label');
+  if(dateEl){
+    const loc=lang==='ar'?'ar-BE':lang==='nl'?'nl-BE':'fr-BE';
+    dateEl.textContent=new Date().toLocaleDateString(loc,{weekday:'long',day:'numeric',month:'long'});
+  }
+}
+
+function renderSkeleton(){
+  const grid=document.getElementById('aladhan-grid');
+  if(!grid) return;
+  grid.innerHTML=Array.from({length:6},()=>`<div class="prayer-card prayer-card--skeleton" aria-hidden="true"><div class="skeleton-icon"></div><div class="skeleton-line skeleton-line--short"></div><div class="skeleton-line skeleton-line--tiny"></div><div class="skeleton-line skeleton-line--medium"></div></div>`).join('');
+}
+
+async function renderAladhanGrid(){
+  renderSkeleton();
+  try{
+    const now=new Date();
+    const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=50.8426&longitude=4.3940&method=3&timezonestring=Europe/Brussels`;
+    const r=await fetch(url);
+    const d=await r.json();
+    if(d.code!==200) throw new Error();
+    const t=d.data.timings;
+    renderCards([
+      {key:'Fajr',time:t.Fajr},{key:'Sunrise',time:t.Sunrise},{key:'Dhuhr',time:t.Dhuhr},
+      {key:'Asr',time:t.Asr},{key:'Maghrib',time:t.Maghrib},{key:'Isha',time:t.Isha}
+    ]);
+  }catch(e){
+    const grid=document.getElementById('aladhan-grid');
+    if(grid) grid.innerHTML=`<p class="prayers-error">Impossible de charger les horaires.<br><a href="https://mawaqit.net/fr/m/gmb" target="_blank">Consulter Mawaqit ↗</a></p>`;
+  }
+}
+
+/* ============ Init ============ */
+document.addEventListener('DOMContentLoaded',()=>{
+  let lang='fr';
+  try{const s=localStorage.getItem('gmb_lang');if(s&&translations[s])lang=s;else{const n=(navigator.language||'fr').substring(0,2).toLowerCase();if(translations[n])lang=n;}}catch(e){}
+  setLanguage(lang);
+  renderMawaqit();
+  // renderAladhanGrid() est appelé dans setLanguage()
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.getAttribute('data-lang'))));
+
+  const toggle=document.querySelector('.nav-toggle');
+  const menu=document.querySelector('.nav-menu');
+  if(toggle&&menu){
+    toggle.addEventListener('click',()=>{const o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o?'true':'false');});
+    menu.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+  }
+
+  const sections=document.querySelectorAll('section[id]');
+  const navLinks=document.querySelectorAll('.nav-link');
+  sections.forEach(s=>new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));});
+  },{rootMargin:'-40% 0px -55% 0px'}).observe(s));
+});
+</script>
+</body>
+</html>

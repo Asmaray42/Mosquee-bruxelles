@@ -1,0 +1,19 @@
+{
+  "name": "grande-mosquee-bruxelles",
+  "version": "1.0.0",
+  "description": "Site web de la Grande Mosquée de Bruxelles — scripts backend",
+  "scripts": {
+    "scrape":       "node scripts/scraper.js",
+    "scrape:text":  "node scripts/scraper.js --text-only",
+    "scrape:ocr":   "node scripts/scraper.js --ocr-only",
+    "admin":        "node scripts/admin.js",
+    "ocr":          "node scripts/scraper.js --image"
+  },
+  "dependencies": {
+    "puppeteer-core": "^21.0.0",
+    "dotenv":         "^16.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

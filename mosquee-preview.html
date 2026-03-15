@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="page_title">Grande Mosquée de Bruxelles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&family=Noto+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --color-vert:        #1a6b4a;
+  --color-vert-fonce:  #0f4a32;
+  --color-vert-clair:  #e8f4ee;
+  --color-or:          #c9a84c;
+  --color-or-clair:    #f0dfa0;
+  --color-blanc:       #faf7f0;
+  --color-blanc-pur:   #ffffff;
+  --color-bordeaux:    #7a1e1e;
+  --color-texte:       #1e1e1e;
+  --color-texte-doux:  #5a5a4a;
+  --color-bordure:     #d4c89a;
+  --font-titre:  'Cinzel', 'Times New Roman', serif;
+  --font-corps:  'Amiri', 'Times New Roman', serif;
+  --font-arabe:  'Noto Sans Arabic', 'Amiri', sans-serif;
+  --espace-xs:   0.25rem;
+  --espace-sm:   0.5rem;
+  --espace-md:   1rem;
+  --espace-lg:   2rem;
+  --espace-xl:   4rem;
+  --espace-xxl:  6rem;
+  --container-max: 1100px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --transition: 0.25s ease;
+  --ombre-douce:  0 2px 12px rgba(26,107,74,0.08);
+  --ombre-medium: 0 4px 24px rgba(26,107,74,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-corps);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-texte);
+  background-color: var(--color-blanc);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.3' opacity='0.18'/%3E%3Cpath d='M15 15 L45 15 L45 45 L15 45 Z' fill='none' stroke='%231a6b4a' stroke-width='0.3' opacity='0.12'/%3E%3C/svg%3E");
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: var(--color-vert); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--color-vert-fonce); text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--color-or); outline-offset: 3px; border-radius: var(--radius-sm); }
+ul[role="list"] { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--espace-lg);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titre);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-vert-fonce);
+  letter-spacing: 0.02em;
+}
+[lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3 { font-family: var(--font-arabe); letter-spacing: 0; }
+h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+p { margin-bottom: var(--espace-md); }
+p:last-child { margin-bottom: 0; }
+address { font-style: normal; }
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.75em 2em;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-titre);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary { background-color: var(--color-vert); color: var(--color-blanc-pur); border-color: var(--color-vert); }
+.btn-primary:hover { background-color: var(--color-vert-fonce); color: var(--color-blanc-pur); text-decoration: none; transform: translateY(-1px); box-shadow: var(--ombre-medium); }
+.btn-outline { background-color: transparent; color: var(--color-or); border-color: var(--color-or); }
+.btn-outline:hover { background-color: var(--color-or); color: var(--color-vert-fonce); text-decoration: none; transform: translateY(-1px); }
+
+/* Header */
+.site-header {
+  position: relative;
+  background-color: var(--color-vert-fonce);
+  color: var(--color-blanc-pur);
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-or);
+}
+.header-pattern {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M20 20 L60 20 L60 60 L20 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.header-inner {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--espace-lg); padding-block: var(--espace-lg);
+}
+.site-identity { display: flex; align-items: center; gap: var(--espace-md); }
+.site-name { display: flex; flex-direction: column; gap: 2px; }
+.site-title { font-family: var(--font-titre); font-size: clamp(1.1rem,2.5vw,1.6rem); color: var(--color-blanc-pur); margin: 0; letter-spacing: 0.05em; }
+[lang="ar"] .site-title { font-family: var(--font-arabe); }
+.site-subtitle { font-family: var(--font-corps); font-size: 0.85rem; color: var(--color-or-clair); margin: 0; letter-spacing: 0.04em; opacity: 0.85; }
+
+.lang-switcher { display: flex; align-items: center; gap: var(--espace-sm); flex-shrink: 0; }
+.lang-btn {
+  background: none; border: 1px solid rgba(201,168,76,0.4);
+  color: var(--color-or-clair); font-family: var(--font-titre);
+  font-size: 0.8rem; letter-spacing: 0.06em; padding: 0.3em 0.7em;
+  border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition);
+}
+.lang-btn:hover, .lang-btn.active { background-color: var(--color-or); border-color: var(--color-or); color: var(--color-vert-fonce); }
+.lang-btn[data-lang="ar"] { font-family: var(--font-arabe); font-size: 0.9rem; }
+.lang-sep { color: var(--color-or); opacity: 0.4; user-select: none; }
+
+/* Nav */
+.site-nav {
+  background-color: var(--color-vert);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-menu { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+  display: block; padding: 1em 1.25em;
+  color: rgba(255,255,255,0.85); font-family: var(--font-titre);
+  font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; transition: all var(--transition); position: relative;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 0; left: 50%;
+  width: 0; height: 2px; background: var(--color-or);
+  transition: all var(--transition); transform: translateX(-50%);
+}
+[dir="rtl"] .nav-link::after { left: auto; right: 50%; transform: translateX(50%); }
+.nav-link:hover, .nav-link.active { color: var(--color-or); text-decoration: none; }
+.nav-link:hover::after, .nav-link.active::after { width: 80%; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: var(--espace-sm); }
+.nav-toggle span { display: block; width: 24px; height: 2px; background-color: var(--color-or); border-radius: 2px; }
+
+/* Sections */
+.section { padding-block: var(--espace-xxl); }
+.section:nth-child(even) { background-color: var(--color-vert-clair); }
+.section-header { text-align: center; margin-bottom: var(--espace-xl); }
+.section-title { position: relative; display: inline-block; }
+.section-title::after { content: ''; display: block; width: 50px; height: 2px; background: var(--color-or); margin: var(--espace-sm) auto 0; }
+.section-sub { color: var(--color-texte-doux); font-size: 1rem; margin-top: var(--espace-sm); }
+
+/* Hero */
+.section-hero {
+  position: relative;
+  background-color: var(--color-vert-fonce) !important;
+  color: var(--color-blanc-pur);
+  padding-block: var(--espace-xxl);
+  overflow: hidden;
+}
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.12'/%3E%3Cpath d='M60 20 L100 60 L60 100 L20 60 Z' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.08'/%3E%3Ccircle cx='60' cy='60' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='0' cy='0' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='120' cy='0' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='0' cy='120' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='120' cy='120' r='25' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.07'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-content { position: relative; text-align: center; max-width: 700px; margin-inline: auto; }
+.hero-eyebrow { font-family: var(--font-arabe); font-size: 1.5rem; color: var(--color-or); margin-bottom: var(--espace-sm); letter-spacing: 0.1em; }
+.hero-eyebrow::before {
+  content: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ';
+  display: block; font-family: var(--font-arabe); font-size: 1.3rem;
+  color: var(--color-or); opacity: 0.7; margin-bottom: var(--espace-xs);
+}
+.hero-title { color: var(--color-blanc-pur); font-size: clamp(1.8rem,5vw,3rem); margin-bottom: var(--espace-md); text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.hero-desc { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: var(--espace-lg); max-width: 500px; margin-inline: auto; }
+.hero-actions { display: flex; gap: var(--espace-md); justify-content: center; flex-wrap: wrap; }
+
+/* Placeholder sections */
+.section-placeholder {
+  text-align: center;
+  padding: var(--espace-xl);
+  border: 2px dashed var(--color-bordure);
+  border-radius: var(--radius-lg);
+  color: var(--color-texte-doux);
+  font-style: italic;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.section-placeholder .placeholder-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--espace-sm);
+  opacity: 0.4;
+}
+
+/* Prayer grid placeholder */
+.prayer-times-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--espace-md); margin-top: var(--espace-lg); }
+.prayer-card {
+  background: var(--color-blanc-pur);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-md);
+  padding: var(--espace-md);
+  text-align: center;
+  box-shadow: var(--ombre-douce);
+  transition: all var(--transition);
+}
+.prayer-card:hover { transform: translateY(-2px); box-shadow: var(--ombre-medium); }
+.prayer-card.next-prayer { border-color: var(--color-or); background: linear-gradient(135deg, #fff9ee, #fff); }
+.prayer-card.next-prayer .prayer-name { color: var(--color-vert); }
+.prayer-name { font-family: var(--font-titre); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-texte-doux); margin-bottom: var(--espace-xs); }
+.prayer-time { font-family: var(--font-titre); font-size: 1.4rem; color: var(--color-vert-fonce); font-weight: 600; }
+.prayer-arabic { font-family: var(--font-arabe); font-size: 1rem; color: var(--color-or); margin-top: 2px; }
+.next-badge { display: inline-block; background: var(--color-or); color: var(--color-vert-fonce); font-size: 0.65rem; font-family: var(--font-titre); letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-top: var(--espace-xs); }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--espace-xl); align-items: start; }
+.contact-info p { margin-bottom: var(--espace-sm); }
+.contact-info address { line-height: 2; color: var(--color-texte-doux); }
+.contact-map-placeholder {
+  background: var(--color-vert-clair);
+  border: 2px dashed var(--color-bordure);
+  border-radius: var(--radius-lg);
+  height: 250px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-texte-doux); font-style: italic;
+  flex-direction: column; gap: var(--espace-sm);
+}
+
+/* Footer */
+.site-footer {
+  position: relative; background-color: var(--color-vert-fonce);
+  color: rgba(255,255,255,0.75); padding-block: var(--espace-xl);
+  border-top: 2px solid var(--color-or); overflow: hidden; text-align: center;
+}
+.footer-pattern {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.footer-inner { position: relative; }
+.footer-name { font-family: var(--font-titre); font-size: 1.1rem; color: var(--color-or); letter-spacing: 0.05em; margin-bottom: var(--espace-xs); }
+.footer-address { font-size: 0.9rem; margin-bottom: var(--espace-sm); opacity: 0.7; }
+.footer-copy { font-size: 0.8rem; opacity: 0.5; }
+
+/* RTL */
+[dir="rtl"] body { font-family: var(--font-arabe); }
+[dir="rtl"] .site-identity { flex-direction: row-reverse; }
+[dir="rtl"] .header-inner { flex-direction: row-reverse; }
+[dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+[dir="rtl"] .hero-content { direction: rtl; }
+[dir="rtl"] .hero-actions { flex-direction: row-reverse; }
+[dir="rtl"] p, [dir="rtl"] li, [dir="rtl"] address { font-family: var(--font-arabe); font-size: 1.1rem; line-height: 2; }
+[dir="rtl"] .contact-grid { direction: rtl; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner { flex-wrap: wrap; gap: var(--espace-md); }
+  .nav-toggle { display: flex; }
+  .nav-menu { display: none; flex-direction: column; width: 100%; background-color: var(--color-vert-fonce); padding-block: var(--espace-sm); }
+  .nav-menu.open { display: flex; }
+  .nav-link { padding: 0.9em 1.5em; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; text-align: start; }
+  .nav-link::after { display: none; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .section { padding-block: var(--espace-xl); }
+  .container { padding-inline: var(--espace-md); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-pattern" aria-hidden="true"></div>
+    <div class="header-inner container">
+      <div class="site-identity">
+        <div class="site-logo" aria-hidden="true">
+          <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" width="60" height="70">
+            <rect x="8" y="38" width="44" height="28" rx="2" fill="var(--color-or)" opacity="0.15"/>
+            <path d="M10 38 Q10 8 30 8 Q50 8 50 38 Z" fill="var(--color-or)" opacity="0.25"/>
+            <path d="M10 38 Q10 8 30 8 Q50 8 50 38" fill="none" stroke="var(--color-or)" stroke-width="1.5"/>
+            <path d="M2 38 Q2 28 10 28 Q18 28 18 38" fill="none" stroke="var(--color-or)" stroke-width="1"/>
+            <path d="M42 38 Q42 28 50 28 Q58 28 58 38" fill="none" stroke="var(--color-or)" stroke-width="1"/>
+            <rect x="27" y="0" width="6" height="12" fill="var(--color-or)" opacity="0.8"/>
+            <polygon points="27,0 33,0 30,-5" fill="var(--color-or)"/>
+            <path d="M22 66 Q22 52 30 52 Q38 52 38 66" fill="var(--color-vert)" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="site-name">
+          <h1 class="site-title" data-i18n="site_name">Grande Mosquée de Bruxelles</h1>
+          <p class="site-subtitle" data-i18n="site_subtitle">Centre Islamique de Belgique</p>
+        </div>
+      </div>
+      <nav class="lang-switcher" aria-label="Langue">
+        <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button class="lang-btn" data-lang="ar" aria-pressed="false">عربي</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button class="lang-btn" data-lang="nl" aria-pressed="false">NL</button>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="site-nav" role="navigation">
+    <div class="container nav-inner">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="main-menu" role="list">
+        <li><a href="#accueil"    class="nav-link active" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="#prieres"   class="nav-link" data-i18n="nav_prayers">Horaires de prière</a></li>
+        <li><a href="#agenda"    class="nav-link" data-i18n="nav_agenda">Agenda</a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav_education">Éducation</a></li>
+        <li><a href="#dons"      class="nav-link" data-i18n="nav_donate">Faire un don</a></li>
+        <li><a href="#contact"   class="nav-link" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content" role="main">
+
+    <!-- HERO -->
+    <section id="accueil" class="section section-hero">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow" data-i18n="hero_eyebrow">Bienvenue</p>
+        <h2 class="hero-title" data-i18n="hero_title">Grande Mosquée de Bruxelles</h2>
+        <p class="hero-desc" data-i18n="hero_desc">Au cœur du Parc du Cinquantenaire, un espace de paix, de prière et de rencontre ouvert à tous.</p>
+        <div class="hero-actions">
+          <a href="#prieres" class="btn btn-primary" data-i18n="hero_cta_prayers">Horaires du jour</a>
+          <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_contact">Nous trouver</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HORAIRES -->
+    <section id="prieres" class="section section-prayers">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="prayers_title">Horaires de prière</h2>
+          <p class="section-sub" data-i18n="prayers_sub">Bruxelles — aujourd'hui</p>
+        </div>
+        <div id="prayer-times-grid" class="prayer-times-grid"></div>
+      </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda" class="section section-agenda">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="agenda_title">Agenda</h2>
+          <p class="section-sub" data-i18n="agenda_sub">Événements et activités à venir</p>
+        </div>
+        <div class="section-placeholder">
+          <div class="placeholder-icon">📅</div>
+          <p data-i18n="agenda_placeholder">Section en cours de développement — Partie 3</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÉDUCATION -->
+    <section id="education" class="section section-education">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="education_title">Éducation</h2>
+          <p class="section-sub" data-i18n="education_sub">Cours, conférences et ressources</p>
+        </div>
+        <div class="section-placeholder">
+          <div class="placeholder-icon">📚</div>
+          <p data-i18n="education_placeholder">Section en cours de développement — Partie 4</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONS -->
+    <section id="dons" class="section section-donate">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="donate_title">Faire un don</h2>
+          <p class="section-sub" data-i18n="donate_sub">Soutenez votre mosquée</p>
+        </div>
+        <div class="section-placeholder">
+          <div class="placeholder-icon">🤲</div>
+          <p data-i18n="donate_placeholder">Section en cours de développement — Partie 5</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="contact_title">Contact & Accès</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p><strong data-i18n="contact_address_label">Adresse</strong></p>
+            <address>
+              Parc du Cinquantenaire 29<br/>
+              1000 Bruxelles, Belgique
+            </address>
+            <br/>
+            <p>📞 +32 2 735 21 75</p>
+            <p>✉️ info@grande-mosquee.be</p>
+          </div>
+          <div class="contact-map-placeholder">
+            <span style="font-size:2rem;opacity:0.4">🗺️</span>
+            <p data-i18n="map_placeholder">Carte Google Maps — Partie 6</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-pattern" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <p class="footer-name" data-i18n="site_name">Grande Mosquée de Bruxelles</p>
+      <p class="footer-address">Parc du Cinquantenaire 29 — 1000 Bruxelles</p>
+      <p class="footer-copy"><span data-i18n="footer_copy">© 2025 Centre Islamique de Belgique</span></p>
+    </div>
+  </footer>
+
+<script>
+'use strict';
+
+const translations = {
+  fr: {
+    page_title: 'Grande Mosquée de Bruxelles',
+    site_name: 'Grande Mosquée de Bruxelles',
+    site_subtitle: 'Centre Islamique de Belgique',
+    nav_home: 'Accueil', nav_prayers: 'Horaires de prière', nav_agenda: 'Agenda',
+    nav_education: 'Éducation', nav_donate: 'Faire un don', nav_contact: 'Contact',
+    hero_eyebrow: 'Bienvenue',
+    hero_title: 'Grande Mosquée de Bruxelles',
+    hero_desc: 'Au cœur du Parc du Cinquantenaire, un espace de paix, de prière et de rencontre ouvert à tous.',
+    hero_cta_prayers: 'Horaires du jour', hero_cta_contact: 'Nous trouver',
+    prayers_title: 'Horaires de prière', prayers_sub: "Bruxelles — aujourd'hui",
+    agenda_title: 'Agenda', agenda_sub: 'Événements et activités à venir',
+    agenda_placeholder: 'Section en cours de développement — Partie 3',
+    education_title: 'Éducation', education_sub: 'Cours, conférences et ressources',
+    education_placeholder: 'Section en cours de développement — Partie 4',
+    donate_title: 'Faire un don', donate_sub: 'Soutenez votre mosquée',
+    donate_placeholder: 'Section en cours de développement — Partie 5',
+    contact_title: 'Contact & Accès', contact_address_label: 'Adresse',
+    map_placeholder: 'Carte Google Maps — Partie 6',
+    footer_copy: '© 2025 Centre Islamique de Belgique',
+    fajr: 'Fajr', dhuhr: 'Dhuhr', asr: 'Asr', maghrib: 'Maghrib', isha: 'Isha',
+    next_prayer: 'Prochaine',
+  },
+  ar: {
+    page_title: 'المسجد الكبير في بروكسل',
+    site_name: 'المسجد الكبير في بروكسل',
+    site_subtitle: 'المركز الإسلامي في بلجيكا',
+    nav_home: 'الرئيسية', nav_prayers: 'أوقات الصلاة', nav_agenda: 'الأنشطة',
+    nav_education: 'التعليم', nav_donate: 'التبرع', nav_contact: 'اتصل بنا',
+    hero_eyebrow: 'أهلاً وسهلاً',
+    hero_title: 'المسجد الكبير في بروكسل',
+    hero_desc: 'في قلب حديقة السينكونتينير، مكان للسلام والصلاة واللقاء مفتوح للجميع.',
+    hero_cta_prayers: 'أوقات الصلاة اليوم', hero_cta_contact: 'كيفية الوصول',
+    prayers_title: 'أوقات الصلاة', prayers_sub: 'بروكسل — اليوم',
+    agenda_title: 'الفعاليات', agenda_sub: 'الأنشطة والفعاليات القادمة',
+    agenda_placeholder: 'قيد التطوير — الجزء 3',
+    education_title: 'التعليم', education_sub: 'دروس ومحاضرات وموارد',
+    education_placeholder: 'قيد التطوير — الجزء 4',
+    donate_title: 'التبرع', donate_sub: 'ادعم مسجدك',
+    donate_placeholder: 'قيد التطوير — الجزء 5',
+    contact_title: 'اتصل بنا والوصول', contact_address_label: 'العنوان',
+    map_placeholder: 'خريطة غوغل — الجزء 6',
+    footer_copy: '© 2025 المركز الإسلامي في بلجيكا',
+    fajr: 'الفجر', dhuhr: 'الظهر', asr: 'العصر', maghrib: 'المغرب', isha: 'العشاء',
+    next_prayer: 'التالية',
+  },
+  nl: {
+    page_title: 'Grote Moskee van Brussel',
+    site_name: 'Grote Moskee van Brussel',
+    site_subtitle: 'Islamitisch Centrum van België',
+    nav_home: 'Home', nav_prayers: 'Gebedstijden', nav_agenda: 'Agenda',
+    nav_education: 'Onderwijs', nav_donate: 'Doneren', nav_contact: 'Contact',
+    hero_eyebrow: 'Welkom',
+    hero_title: 'Grote Moskee van Brussel',
+    hero_desc: 'In het hart van het Jubelpark, een plek van vrede, gebed en ontmoeting, open voor iedereen.',
+    hero_cta_prayers: 'Gebedstijden vandaag', hero_cta_contact: 'Ons vinden',
+    prayers_title: 'Gebedstijden', prayers_sub: 'Brussel — vandaag',
+    agenda_title: 'Agenda', agenda_sub: 'Aankomende evenementen en activiteiten',
+    agenda_placeholder: 'Sectie in ontwikkeling — Deel 3',
+    education_title: 'Onderwijs', education_sub: 'Lessen, lezingen en bronnen',
+    education_placeholder: 'Sectie in ontwikkeling — Deel 4',
+    donate_title: 'Doneren', donate_sub: 'Steun uw moskee',
+    donate_placeholder: 'Sectie in ontwikkeling — Deel 5',
+    contact_title: 'Contact & Bereikbaarheid', contact_address_label: 'Adres',
+    map_placeholder: 'Google Maps — Deel 6',
+    footer_copy: '© 2025 Islamitisch Centrum van België',
+    fajr: 'Fajr', dhuhr: 'Dhuhr', asr: 'Asr', maghrib: 'Maghrib', isha: 'Isha',
+    next_prayer: 'Volgende',
+  }
+};
+
+// Noms arabes des prières (toujours affichés en arabe)
+const prayerArabic = { Fajr: 'الفجر', Dhuhr: 'الظهر', Asr: 'العصر', Maghrib: 'المغرب', Isha: 'العشاء' };
+
+function setLanguage(lang) {
+  if (!translations[lang]) lang = 'fr';
+  const dict = translations[lang];
+  const html = document.documentElement;
+  html.setAttribute('lang', lang);
+  html.setAttribute('data-lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  if (dict.page_title) document.title = dict.page_title;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.getAttribute('data-lang') === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+  try { localStorage.setItem('gmb_lang', lang); } catch(e) {}
+  renderPrayerTimes(); // re-render with new language
+}
+
+// Calcul simplifié des heures de prière pour Bruxelles
+// En production on utilisera l'API Aladhan — ici des horaires représentatifs pour la démo
+function getPrayerTimes() {
+  const now = new Date();
+  const month = now.getMonth(); // 0-11
+  // Horaires approximatifs Bruxelles selon la saison (heure locale)
+  const times = [
+    // [Fajr, Dhuhr, Asr, Maghrib, Isha]
+    ['06:30','12:30','15:00','17:00','18:30'], // Jan
+    ['06:10','12:35','15:30','17:30','19:00'], // Fév
+    ['05:40','12:35','16:00','18:05','19:35'], // Mar
+    ['05:00','13:35','17:30','20:30','22:10'], // Avr (CEST)
+    ['04:20','13:30','17:55','21:10','22:55'], // Mai
+    ['03:55','13:35','18:15','21:45','23:40'], // Jun
+    ['04:10','13:40','18:10','21:40','23:25'], // Jul
+    ['04:55','13:30','17:45','21:00','22:35'], // Aoû
+    ['05:40','13:15','17:00','20:00','21:30'], // Sep
+    ['06:25','13:00','16:10','18:55','20:25'], // Oct
+    ['06:10','12:30','14:45','16:45','18:15'], // Nov
+    ['06:40','12:25','14:30','16:30','18:00'], // Déc
+  ];
+  const t = times[month];
+  return [
+    { name: 'Fajr',    arabic: 'الفجر',  time: t[0] },
+    { name: 'Dhuhr',   arabic: 'الظهر',  time: t[1] },
+    { name: 'Asr',     arabic: 'العصر',  time: t[2] },
+    { name: 'Maghrib', arabic: 'المغرب', time: t[3] },
+    { name: 'Isha',    arabic: 'العشاء', time: t[4] },
+  ];
+}
+
+function getNextPrayerIndex(prayers) {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  for (let i = 0; i < prayers.length; i++) {
+    const [h, m] = prayers[i].time.split(':').map(Number);
+    if (h * 60 + m > currentMinutes) return i;
+  }
+  return 0; // Fajr du lendemain
+}
+
+function renderPrayerTimes() {
+  const grid = document.getElementById('prayer-times-grid');
+  if (!grid) return;
+  const prayers = getPrayerTimes();
+  const nextIdx = getNextPrayerIndex(prayers);
+  const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+  const dict = translations[lang];
+
+  grid.innerHTML = prayers.map((p, i) => `
+    <div class="prayer-card ${i === nextIdx ? 'next-prayer' : ''}">
+      <div class="prayer-name">${p.name}</div>
+      <div class="prayer-arabic">${p.arabic}</div>
+      <div class="prayer-time">${p.time}</div>
+      ${i === nextIdx ? `<div class="next-badge">${dict.next_prayer || 'Prochaine'}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  // Langue initiale
+  let lang = 'fr';
+  try {
+    const saved = localStorage.getItem('gmb_lang');
+    if (saved && translations[saved]) lang = saved;
+    else {
+      const nav = (navigator.language || 'fr').substring(0,2).toLowerCase();
+      if (translations[nav]) lang = nav;
+    }
+  } catch(e) {}
+
+  setLanguage(lang);
+  renderPrayerTimes();
+
+  // Switcher langue
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+  });
+
+  // Hamburger
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(sections[0]);
+  sections.forEach(s => new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(s));
+});
+</script>
+</body>
+</html>
